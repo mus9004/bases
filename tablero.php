@@ -62,6 +62,7 @@
 <div style="padding-left: 50px; padding-right: 50px;">
   <div class="row">
     <div class="grid">
+    <div class="grid"></div>
     <?php
     for ($i=0; $i < 20; $i++) { 
       ?>
@@ -87,6 +88,8 @@
         fitRows: {
           gutter: 10
         }
-      });</script>
+      });
+    </script>
+    <script src="js/cargarTablero.js"></script>
   </body>
 </html>
