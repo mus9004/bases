@@ -1,2 +1,2 @@
 # bases
-![Pinterest Screenshot](/pinterest.jpg)
+![Pinterest Screenshot](/img/pinterest.jpg)

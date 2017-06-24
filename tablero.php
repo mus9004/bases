@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="icon.png">
+    <link rel="icon" href="img/icon.png">
 
     <title>Jumbotron Template for Bootstrap</title>
 
@@ -24,7 +24,7 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="#"><img src="icon.png" width="25" height="25"></a>
+      <a class="navbar-brand" href="#"><img src="img/icon.png" width="25" height="25"></a>
     </div>
       <form style="margin-top: 8px;">
           <div class="input-group">
@@ -59,16 +59,19 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<div style="padding-left: 50px; padding-right: 50px;">
   <div class="row">
     <div class="grid">
-      <div class="grid-item"><img src="icon.png" class="img-responsive"><button class="btn btn-danger btn-block">Seguir</button></div>
-      <div class="grid-item"><img src="icon.png" class="img-responsive"><button class="btn btn-danger btn-block">Seguir</button></div>
-      <div class="grid-item"><img src="icon.png" class="img-responsive"><button class="btn btn-danger btn-block">Seguir</button></div>
-      <div class="grid-item"><img src="icon.png" class="img-responsive"><button class="btn btn-danger btn-block">Seguir</button></div>
-      <div class="grid-item"><img src="icon.png" class="img-responsive"><button class="btn btn-danger btn-block">Seguir</button></div>
-      <div class="grid-item"><img src="icon.png" class="img-responsive"><button class="btn btn-danger btn-block">Seguir</button></div>
-    </div>
+    <?php
+    for ($i=0; $i < 20; $i++) { 
+      ?>
+      <div class="grid-item"><img src="img/icon.png" width="250" height="250" class="img-responsive"><strong>Pinterest Logo</strong><br>Leví Canales<button class="btn btn-danger btn-block">Seguir</button></div>
+      <?php
+    }
+      
+    ?>
   </div>
+</div>
 
 
     <!-- Bootstrap core JavaScript
