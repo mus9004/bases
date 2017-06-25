@@ -1,0 +1,28 @@
+.icon{
+
+    margin-top: 8px;
+    margin-left: 15px;
+
+}
+p {
+    font-family: "Arial Black", Georgia, Serif;
+    margin-left: 10px;
+
+}
+input{
+
+    margin-left: 30px;
+    margin-top: 5px;
+    width: 876px;
+
+}
+.btnBoton{
+
+            background-color: Transparent;
+            background-repeat:no-repeat;
+            border: none;
+            cursor:pointer;
+            overflow: hidden;
+
+        }
+
