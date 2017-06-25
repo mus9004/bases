@@ -1,3 +1,13 @@
 body {
   min-height: 2000px;
 }
+.btn-danger {
+    color: #fff;
+    background-color: #bd081c;
+    border-color: #bd081c;
+}
+.btn-danger:hover {
+    color: #fff;
+    background-color: #a3081a;
+    border-color: #a3081a;
+}

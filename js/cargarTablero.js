@@ -9,7 +9,7 @@ $(document).ready(function(){
 		        layoutMode: 'fitRows',
 		        itemSelector: '.grid-item',
 		        fitRows: {
-		          gutter: 10
+		          gutter: 30
 		        }
 		      });
 		}
