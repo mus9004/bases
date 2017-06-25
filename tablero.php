@@ -61,16 +61,8 @@
 </nav>
 <div style="padding-left: 50px; padding-right: 50px;">
   <div class="row">
-    <div class="grid">
-    <div class="grid"></div>
-    <?php
-    for ($i=0; $i < 20; $i++) { 
-      ?>
-      <div class="grid-item"><img src="img/icon.png" width="250" height="250" class="img-responsive"><strong>Pinterest Logo</strong><br>Leví Canales<button class="btn btn-danger btn-block">Seguir</button></div>
-      <?php
-    }
-      
-    ?>
+    <div id="tablero" class="grid">
+    </div>
   </div>
 </div>
 
@@ -79,17 +71,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.min.js"></script>
+    
     <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/isotope.pkgd.min.js"></script>
-    <script>$('.grid').isotope({
-        layoutMode: 'fitRows',
-        itemSelector: '.grid-item',
-        fitRows: {
-          gutter: 10
-        }
-      });
-    </script>
     <script src="js/cargarTablero.js"></script>
   </body>
 </html>
