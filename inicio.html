@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+    <meta name="author" content="">
+     <link rel="icon" type="image/icon" href="img/pinterest.ico" />
+    <title>Pinterest</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="css/sticky-footer.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/signin.css">
+    <style>
+
+      html { 
+        background: white; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+
+      @keyframes animatedBackground {
+        from   { background-position: 0 0; }
+        to { background-position: 0px 622px; } /* set this to the height of the image */
+          }
+          @-webkit-keyframes animatedBackground {
+            from   { background-position: 0 0; }
+        to { background-position: 0px 622px } /* set this to the height of the image */
+          }
+          @-ms-keyframes animatedBackground {
+            from    { background-position: 0 0; }
+        to { background-position: 0px 622px; } /* set this to the height of the image */
+          }
+          @-moz-keyframes animatedBackground {
+            from   { background-position: 0 0; }
+        to { background-position: 0px 622px; } /* set this to the height of the image */
+          }
+
+      html{width:100%;}
+
+      #animate-area2  { 
+        width: 1500px; 
+        height: 740px; 
+        position:absolute;
+        background-image: url(img/fond.jpg);top:0;left:50%;transform: translateX(-50%);
+        background-position: 0 0;
+        background-repeat: repeat-y;
+      animation: animatedBackground 40s infinite linear;
+      -ms-animation: animatedBackground 40s infinite linear;
+      -moz-animation: animatedBackground 40s infinite linear;
+      -webkit-animation: animatedBackground 40s infinite linear;
+      }
+    </style>
+  
+                    
+  </head>
+
+  <body id="animate-area2" >
+ 
+ 
+    <div id="navbar" class="navbar-collapse collapse" style="padding-top: 10px">
+          <form class="navbar-form navbar-right">  
+            <button id="iniciar-sesion" type="button" style="width: 200px" class="btn btn-lg btn btn-default btn-block ">Iniciar Sesion</button>
+          </form>
+    </div>
+
+    <div class="container">
+      <div class="row vertical-offset-100">
+        <div class="col-md-5 col-md-offset-5">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <form accept-charset="UTF-8" role="form">
+                  <fieldset style="margin: 20px">
+                  <div style="display:block;height:45px;margin:5px auto;width:45px;">
+                    <img style="width: 50px; height: 50px;" src="img/pinterest.ico">
+                  </div>
+                    <div>
+                      <h1 style="text-align: center; font-weight: bolder;">Te damos la bienvenida a Pinterest</h1>
+                    </div>
+                    <div class="form-group">
+                       <input class="form-control" placeholder="correo electronico" name="email" type="text">
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" placeholder="crea una contraseña" name="password" type="password" value="">
+                    </div>
+
+                  <input class="btn btn-lg btn-danger btn-block" type="submit" value="Continuar">
+                  <div>
+                    <h4 style="text-align: center;">O</h4>
+                  </div>
+                  <div>
+                    <button class="btn btn-default btn-block" style="background-color: #5858FA; color: #fff; font-weight: bolder;"><img style="width: 30px; height: 30px" src="img/face.png">&nbsp &nbsp &nbsp &nbsp Iniciar sesión con Facebook</button>
+                  </div>
+                  <br>
+                  <div>
+                    <button class="btn btn-default btn-block" style="background-color: #2E9AFE; color: #fff; font-weight: bolder;"><img style="width: 30px; height: 30px" src="img/descarga.png">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Iniciar sesión con Google</button>
+                  </div>  <br>
+                  <div>
+                    <h5 style="text-align: center;">Al crear una cuenta, aceptas las <a href="">Condiciones del servicio</a> y la <a href="">Política de privacidad</a> de Pinterest.</h5>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+       </div>
+     </div>
+    </div>
+
+    <div>
+      <div style="text-align: center;">
+        <a style="color: #fff" href="">Acerca de Pinterest</a> &nbsp &nbsp
+        <a style="color: #fff" href="">Blog</a> &nbsp &nbsp
+        <a style="color: #fff" href="">Empresas</a> &nbsp &nbsp
+        <a style="color: #fff" href="">Condiciones del servicio</a> &nbsp &nbsp
+        <a style="color: #fff" href="">Política de privacidad</a> &nbsp &nbsp
+        <a style="color: #fff" href="">Ayuda</a>  &nbsp &nbsp
+        <a style="color: #fff" href="">App para iPhone</a> &nbsp &nbsp 
+        <a style="color: #fff" href="">App para Android</a> &nbsp &nbsp 
+        <a style="color: #fff" href="">Usuarios</a>  &nbsp &nbsp
+        <a style="color: #fff" href="">Colecciones</a> &nbsp &nbsp 
+        <a style="color: #fff" href="">Explorar</a>  &nbsp &nbsp
+        <a style="color: #fff" href="">Internacional</a> &nbsp &nbsp
+      </div>
+    </div>
+
+     <div id="navbar" class="navbar-collapse collapse" style="padding-top: 30px">
+          <form class="navbar-form navbar-right">  
+            
+          </form>
+    </div>
+
+              
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+   <script type="text/javascript"  src="js/controlador.js"></script> 
+  <script type="text/javascript">
+
+    // $("#logo").click(function(){
+    //       location.href="index.html";
+    //   });
+
+    $("#iniciar-sesion").click(function(){
+      location.href ="login.html";
+    });
+
+  </script>         
+  
+  </body>
+</html>
