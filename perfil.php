@@ -155,10 +155,7 @@
          <div class="well col-sm-3 col-sm-offset-2 e zoom">
                 <center><a href="#"><i  style="font-size:35px; margin-top: 35px"class="glyphicon glyphicon-plus-sign"></i></a></center>
           </div>
-                  
     </div>
-    
-    
 </body>
 </html>
 
