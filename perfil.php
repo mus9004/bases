@@ -132,21 +132,15 @@
             <div class="col-sm-12 col-sm-offset-2">
                 <p id="etiquetacreartablero"><b>Crear tablero</b></p>
                 <div></div>
- 
             </div>
-
           </div>
-
-         
       </div>
-
-
     </div>
     <div class="well col-sm-12 " style="max-width: 100%">
          <p id="etiquetacreartablero "><b>Tableros privados</b></p>
          <div class="well col-sm-3 col-sm-offset-2 e">
                 <center><a href="#"><i  style="font-size:35px; margin-top: 35px"class="glyphicon glyphicon-plus-sign"></i></a></center>
-              </div>
+          </div>
                   
     </div>
     
