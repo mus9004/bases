@@ -263,6 +263,12 @@ var $grid = $('.grid').imagesLoaded( function() {
     columnWidth: 40
   });
 });
+$grid.on( 'click', '.grid-item', function() {
+  // remove clicked element
+  $grid.masonry( 'remove', this )
+    // layout remaining item elements
+    .masonry('layout');
+});
 </script>
 </body>
 </html>
