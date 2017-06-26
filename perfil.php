@@ -38,9 +38,23 @@
       font-size:20px;
       color: #b5b5b5;  
     }
-    .e:hover{
-   background-color:rgba(217,222,231,0.5);
-}
+     .e:hover{
+       background-color:rgba(217,222,231,0.5);
+    }
+
+    .zoom{
+        transition: 1.5s ease;
+        -moz-transition: 1.5s ease; /* Firefox */
+        -webkit-transition: 1.5s ease; /* Chrome - Safari */
+        -o-transition: 1.5s ease; /* Opera */
+    }
+    .zoom:hover{
+      transform : scale(1.2);
+      -moz-transform : scale(1.2); /* Firefox */
+      -webkit-transform : scale(1.2); /* Chrome - Safari */
+      -o-transform : scale(1.2); /* Opera */
+      -ms-transform : scale(1.2); /* IE9 */
+    }
 
 </style>
 </head>
@@ -124,7 +138,7 @@
               <li role="presentation"><a href="#">Pines</a></li>
                </ul>
               <br>
-              <div class="well col-sm-3 e">
+              <div class="well col-sm-3 e zoom">
                 <center><a href="#"><i  style="font-size:35px; margin-top: 35px"class="glyphicon glyphicon-plus-sign"></i></a></center>
               </div>
             </div> 
@@ -138,7 +152,7 @@
     </div>
     <div class="well col-sm-12 " style="max-width: 100%">
          <p id="etiquetacreartablero "><b>Tableros privados</b></p>
-         <div class="well col-sm-3 col-sm-offset-2 e">
+         <div class="well col-sm-3 col-sm-offset-2 e zoom">
                 <center><a href="#"><i  style="font-size:35px; margin-top: 35px"class="glyphicon glyphicon-plus-sign"></i></a></center>
           </div>
                   
