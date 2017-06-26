@@ -61,7 +61,6 @@
 <body>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <a class="navbar-brand" href="#"><img src="img/icon.png" width="25" height="25"></a>
           </div>
@@ -94,8 +93,8 @@
                   </div>
                 </div>
             </form>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+          </div>
+        </div>
       </nav>
 
     <div >
@@ -142,7 +141,6 @@
                 <center><a href="#"><i  style="font-size:35px; margin-top: 35px"class="glyphicon glyphicon-plus-sign"></i></a></center>
               </div>
             </div> 
-
             <div class="col-sm-12 col-sm-offset-2">
                 <p id="etiquetacreartablero"><b>Crear tablero</b></p>
                 <div></div>
