@@ -38,6 +38,10 @@
       font-size:20px;
       color: #b5b5b5;  
     }
+    .e:hover{
+   background-color:rgba(217,222,231,0.5);
+}
+
 </style>
 </head>
 <body>
@@ -120,21 +124,30 @@
               <li role="presentation"><a href="#">Pines</a></li>
                </ul>
               <br>
-              <div class="well col-sm-3">
+              <div class="well col-sm-3 e">
                 <center><a href="#"><i  style="font-size:35px; margin-top: 35px"class="glyphicon glyphicon-plus-sign"></i></a></center>
               </div>
             </div> 
 
-            <div class="col-sm-2 col-sm-offset-2">
+            <div class="col-sm-12 col-sm-offset-2">
                 <p id="etiquetacreartablero"><b>Crear tablero</b></p>
                 <div></div>
-                <div class="well" clas="col-sm-12" style="width: 100%"></div>
+ 
             </div>
 
           </div>
+
          
       </div>
 
+
+    </div>
+    <div class="well col-sm-12 " style="max-width: 100%">
+         <p id="etiquetacreartablero "><b>Tableros privados</b></p>
+         <div class="well col-sm-3 col-sm-offset-2 e">
+                <center><a href="#"><i  style="font-size:35px; margin-top: 35px"class="glyphicon glyphicon-plus-sign"></i></a></center>
+              </div>
+                  
     </div>
     
     
