@@ -59,7 +59,7 @@
 </style>
 </head>
 <body>
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand" href="#"><img src="img/icon.png" width="25" height="25"></a>
