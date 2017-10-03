@@ -2,7 +2,7 @@
  
     class Conexion {
  
-        private $_LinkId; //objeto resource que indicara si se ha conectado
+        private $LinkId; //objeto resource que indicara si se ha conectado
         private $_Servidor;
         private $NombreBD;
         private $Usuario;
@@ -12,13 +12,13 @@
         private static $Self = null; //Almacenara un objeto de tipo Conexion
 
 
-        private function __construct() {
+        public function __construct() {
  
             $this->Servidor = '127.0.0.1';
             $this->NombreBD = 'pinterestdb';
             $this->Usuario = 'SYSTEM';
             $this->Clave = 'oracle';
-            $this->Puerto = '1521'; && PUERTO QUE ESCUCHA ORACLE
+            $this->Puerto = '1521'; // PUERTO QUE ESCUCHA ORACLE
         }
  
         public static function getInstancia() {
@@ -35,14 +35,13 @@
         }
  
 
-        private function conectar() {
+        public function conectar() {
  
-            $this->_LinkId = null;
+            $this->LinkId = null;
             $intentos = 0;
             while (!is_resource($this->LinkId) && $intentos < 20) {
                 $intentos++;
-                $this->LinkId =
-                        oci_connect($this->Usuario, $this->Clave, "(DESCRIPTION = (LOAD_BALANCE = yes)
+                $this->LinkId = oci_connect($this->Usuario, $this->Clave, "(DESCRIPTION = (LOAD_BALANCE = yes)
                                (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP) (HOST = {$this->Servidor}) (PORT = 1521) ) )
                                (CONNECT_DATA = (FAILOVER_MODE = (TYPE = select) (METHOD = basic) (RETRIES = 180) (DELAY = 5) )
                                (SERVICE_NAME = {$this->NombreBD}) ) )");
