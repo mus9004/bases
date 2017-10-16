@@ -1,0 +1,61 @@
+paginas que faltan
+1.configuracion
+2.centro de asistencia
+3.En la barra del menu o tablero no aparecen las opciones de 
+centro de aistencia ni de cambiar el tipo de cuenta
+4.tu cuenta
+ configuracion
+  5.editar configuracion
+  6.modifica tu perfil
+  7.notificaciones
+  8.por que corrigio pinterest un vinculo dañado
+ seguridad
+  9.limites y bloqueos
+  10.modo seguro
+  11.restablecer contraseña o aspectos basicos 
+ desactivacion
+  12.reactivar tu cuenta
+  13.si otra persona inicio sesion usando tu correao
+  14.volver a activar o desactivar tu cuenta
+ iniciar sesion
+  15.cerrar la sesion de pinteres
+  16.problemas con los mensajes de correo de pinterest
+  17.problemas para iniciar sesion
+  18.restablecer tu contraseña
+19.empresas y sitios web
+ comenzar
+  20.Configura tu perfil de empresa
+  21.Todo sobre Pinterest para empresas
+  22.Prácticas recomendadas para empresas
+  23.Preguntas de empresas frecuentes
+ los pines y sitios web
+  24.Widgets de sitios web
+  25.Diseña un botón Guardar para tu sitio
+  26.Evita que se guarde desde tu sitio en Pinterest
+  27.Habilitar Pines detallados para tu sitio web
+  28.Hashtags en tus Pines
+  29.Más información sobre el rastreador de Pinterest
+  30.Vínculos y sitios web bloqueados
+ politicas para empresas
+  31.Cómo usar el logo de Pinterest
+  32.Cuentas verificadas
+ pines promocionales
+  /*33.Crear y editar Pines promocionados
+  34.Promoted Pin Tips
+  35.Resolver un problema relacionado con los Pines promocionados
+  36.Understand the auction*/  #estas podrian ser opcionales
+ analytics
+  /*37.Pinterest Analytics               #estas podrian ser opcionales
+  38.Actividad de tu sitio web           #estas podrian ser opcionales
+  39.Análisis de tu perfil de Pinterest  #estas podrian ser opcionales
+  40.Análisis del perfil                 #estas podrian ser opcionales
+  41.Confirma tu sitio web               #estas podrian ser opcionales
+  42.Personas a las que llegas           #estas podrian ser opcionales
+  43.Problemas con Pinterest Analytics*/
+44.que es pinterest
+45.para desarrolladoras
+46.para la prensa
+47.nuestro blog
+48.empleos
+49.terminos y privacidad
+50.creador d widgets

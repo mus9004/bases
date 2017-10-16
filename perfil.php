@@ -62,7 +62,7 @@
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#"><img src="img/icon.png" width="25" height="25"></a>
+            <a class="navbar-brand" href="Principal.html"><img src="img/icon.png" width="25" height="25"></a>
           </div>
             <form style="margin-top: 8px;">
                 <div class="input-group">
