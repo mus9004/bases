@@ -4,10 +4,12 @@
   	$conexion->conectar();
   	$consulta=$conexion->ejecutarInstruccion('SELECT * FROM TBL_USUARIO');
   	
-  	echo $conexion->cantidadRegistros($consulta)+"\n";
+  	//echo $conexion->cantidadRegistros($consulta)+"\n";
 
   	while(($linea=$conexion->obtenerRegistro($consulta))!= false){ ////ejemplo de como obtiene los datos linea por linea
-  			echo $linea[1];		
+  			
+  			echo $linea[7]."\n";		
+  		
   	}
   	
   	$conexion->desconectar();
