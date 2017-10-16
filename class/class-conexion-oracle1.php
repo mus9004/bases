@@ -8,6 +8,7 @@
         private $Usuario;
         private $Clave;
         private $Puerto;
+        private $enlace;
         public static $Mensaje;
         private static $Self = null; //Almacenara un objeto de tipo Conexion
 
@@ -21,41 +22,15 @@
             $this->Puerto = '1521'; // PUERTO QUE ESCUCHA ORACLE
         }
  
-        public static function getInstancia() {
- 
-            if (!self::$Self instanceof self) {
-                $instancia = new self(); //new self ejecuta __construct()
-                self::$Self = $instancia;
-                if (!is_resource($instancia->conectar())) {
-                    self::$Self = null;
-                }
-            }
-            $conex = self::$Self;
-            return $conex->LinkId; //Se devuelve el link a la conexion
-        }
+      
  
 
         public function conectar() {
- 
-            $this->LinkId = null;
-            $intentos = 0;
-            while (!is_resource($this->LinkId) && $intentos < 20) {
-                $intentos++;
-                $this->LinkId = oci_connect($this->Usuario, $this->Clave, 'localhost/XE');
-            }
- 
-            if (is_resource($this->LinkId)) {
-                self::$Mensaje = "Conexion exitosa!<br/>";
-            } else {
-                self::$Mensaje = "ERROR: No se puede conectar a la base de datos..!<br/>";
-            }
-            echo self::$Mensaje;
-            return $this->LinkId;
+ 			$this->enlace=oci_connect($this->NombreBD, $this->Clave, 'localhost/XE');
+       		if(!$this->enlace){
+       			echo "no conectado";
+       		}
         }
- 
-        /**
-         * Este método verifica si había una conexión abierta anteriormenete. Si había la cierra.
-         */
         public static function desconectar() {
  
             $conexion_activa = false;
@@ -66,14 +41,60 @@
                 self::$Self = null; //destruyo el objeto
             }
             return $conexion_activa;
-        }
+        } 
+       
 
         public function ejecutarInstruccion($sql){
-			return oci_parse($this->LinkId, $sql);
+			$stid=oci_parse($this->enlace, $sql);
+			oci_execute($stid);
+			return $stid;
 		}
 
 		public function obtenerRegistro($resultado){
-			return oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULL); 
+			return oci_fetch_array($resultado, OCI_BOTH); //por nombre o numero de campo
+		}
+
+		/*public function cantidadRegistros($resultado){
+			$results=array();
+			return oci_fetch_all($resultado1, $results, null, null, OCI_FETCHSTATEMENT_BY_ROW);
+		}*/
+
+		public function getNombreBD(){
+			return $this->NombreBD;
+		}
+		public function setNombreBD($NombreBD){
+			$this->NombreBD = $NombreBD;
+		}
+		public function getUsuario(){
+			return $this->Usuario;
+		}
+		public function setUsuario($Usuario){
+			$this->Usuario = $Usuario;
+		}
+		public function getClave(){
+			return $this->Clave;
+		}
+		public function setClave($Clave){
+			$this->Clave = $Clave;
+		}
+		public function getPuerto(){
+			return $this->Puerto;
+		}
+		public function setPuerto($Puerto){
+			$this->Puerto = $Puerto;
+		}
+		public function getEnlace(){
+			return $this->enlace;
+		}
+		public function setEnlace($enlace){
+			$this->enlace = $enlace;
+		}
+		public function _toString(){
+			return "NombreBD: " . $this->NombreBD . 
+				" Usuario: " . $this->Usuario . 
+				" Clave: " . $this->Clave . 
+				" Puerto: " . $this->Puerto . 
+				" Enlace: " . $this->enlace;
 		}
  
  
