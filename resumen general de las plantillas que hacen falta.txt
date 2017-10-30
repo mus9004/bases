@@ -59,3 +59,7 @@ centro de aistencia ni de cambiar el tipo de cuenta
 48.empleos
 49.terminos y privacidad
 50.creador d widgets
+
+PONGAN ESTO PARA LA BASE:
+ALTER TABLE TBL_FOTOS 
+ADD (URL_FOTO VARCHAR2(300) );
