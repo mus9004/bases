@@ -32,6 +32,7 @@
 		?></div>
 		</div>
 		<?php*/
+		$conexion->desconectar();
 		break;
  	
  	default:
