@@ -16,5 +16,5 @@ $(document).ready(function(){
 	});
 });
 $("#perfil").click(function(){
-      location.href ="perfil.php";
+      location.href ="perfil.html";
     });
