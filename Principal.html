@@ -40,9 +40,9 @@
          .grid {
           margin: 0 auto;
         }
-          .grid-item {
-            margin-bottom: 10px;
-          }
+		.grid-item {
+			margin-bottom: 10px;
+		}
     </style>
 
 </head>
@@ -57,209 +57,61 @@
       <a class="navbar-brand" href=""><img src="img/icon.png" width="25" height="25"></a>
     </div>
       <form style="margin-top: 8px;">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search">
-            <div class="input-group-btn">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  Tableros <span class="glyphicon glyphicon-chevron-down"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><a href="#">Todos los Pines</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Tus Pines</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Pines que se pueden comprar</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Gente</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Tableros <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></li>
-                </ul>
-                <button type="button" class="btn btn-default dropdown-toggle" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorías <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                </button>
-                <a href="perfil.php"><button type="button" class="btn btn-default">Guardado
-                  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                </button></a>
-                <button type="button" class="btn btn-default">Notificaciones
-                  <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                </button>
-            </div>
-          </div>
-      </form>
+           <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search">
+                <div class="input-group-btn">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tableros <span class="glyphicon glyphicon-chevron-down"></span></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Todos los Pines</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Tus Pines</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Pines que se pueden comprar</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Gente</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Tableros <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorías <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">gd</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                    <button id="perfil" type="button" class="btn btn-default">Guardado
+                      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notificaciones
+                      <span class="glyphicon glyphicon-comment" aria-hidden="true"></span></button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#">gd</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                </div>
+              </div>
+      	</form>
     </div>
   </div>
 </nav>
 
-<div style="padding-left: 50px; padding-right: 50px;">
-  <div class="row">
-    <div id="tablero" class="grid">
-    </div>
-  </div>
+<div id="principal">
 </div>
-<!--<nav class="navbar navbar-default navbar-fixed-top" style="height: 62px;">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <img src="img/icono3.1.png" class="icon"> 
-         <p>Inicio</p>
 
-          
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-
-            <li><a href="#"><button class="btnBoton"><span class="glyphicon glyphicon-list icono"></span><p class="contenido">Categorias</p></button>
-            </a></li>
-            <li><a href="#"><button class="btnBoton"><span class="glyphicon glyphicon-user icono"></span><p class="contenido">Guardado</p></button>
-            </a></li>
-            <li><a href="#"><button class="btnBoton"><span class="glyphicon glyphicon-comment icono"></span><p class="contenido">Notificaciones</p></button>
-            </a></li>            
-          </ul>
-          <!--<form class="navbar-form ">
-            <div class="form-group">
-             <input type="text" class="form-control searchInput " alt="Responsive image"  placeholder="Buscar" style="    margin-left: 60px; width: 700px;"></input>
-            </div>
-          </form>
-        </div>
-      </div>
-  </nav>-->
-
-  <div style="margin-top: 50px; padding: 40px">
-        <div class="grid">
-
-            <div class="grid-item">
-              <img src="img/img10.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-            </div>  
-            <div class="grid-item">
-              <img src="img/img14.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-            </div>
-            <div class="grid-item">
-              <img src="img/img1.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-            </div>
-            <div class="grid-item">
-              <img src="img/img19.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-            </div>
-            <div class="grid-item">
-              <img src="img/img6.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-            </div>
-            <div class="grid-item">
-              <img src="img/img12.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-            </div>
-            <div class="grid-item">
-              <img src="img/img6.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-            </div>
-            
-             <div class="grid-item">
-              <img src="img/img11.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-            </div> 
-             <div class="grid-item">
-              <img src="img/img11.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-            </div>
-             <div class="grid-item">
-              <img src="img/img3.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-            </div>
-             <div class="grid-item">
-              <img src="img/img9.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-            </div>
-             <div class="grid-item">
-              <img src="img/img2.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-            </div>
-             <div class="grid-item">
-              <img src="img/img21.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-            </div>
-             <div class="grid-item">
-              <img src="img/img23.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-            </div>
-             <div class="grid-item">
-              <img src="img/img26.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-            </div>
-             <div class="grid-item">
-              <img src="img/img12.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-            </div>
-            
-              <div class="grid-item">
-                <img src="img/img8.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img7.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img15.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img17.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img20.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img3.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img15.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img7.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img24.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img7.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-
-            
-              <div class="grid-item">
-                <img src="img/img10.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img11.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img4.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img18.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img8.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img15.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img10.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img22.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img25.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img7.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-              <div class="grid-item">
-                <img src="img/img22.jpg" class="img-responsive" width="250" style="border-radius: 12px;">
-              </div>
-
-     </div>
-  </div><!--/row-->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/masonry.pkgd.min.js"></script>
 <script src="js/imagesloaded.pkgd.min.js"></script>
-<script>
-var $grid = $('.grid').imagesLoaded( function() {
-  // init Masonry after all images have loaded
-  $grid.masonry({
-    columnWidth: 40
-  });
-});
-$grid.on( 'click', '.grid-item', function() {
-  // remove clicked element
-  $grid.masonry( 'remove', this )
-    // layout remaining item elements
-    .masonry('layout');
-});
-</script>
+<script src="js/cargarPrincipal.js"></script>
 </body>
 </html>
