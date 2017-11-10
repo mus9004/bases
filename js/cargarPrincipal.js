@@ -1,15 +1,3 @@
-var $grid = $('.grid').imagesLoaded( function() {
-  // init Masonry after all images have loaded
-  $grid.masonry({
-    columnWidth: 40
-  });
-});
-$grid.on( 'click', '.grid-item', function() {
-  // remove clicked element
-  $grid.masonry( 'remove', this )
-    // layout remaining item elements
-    .masonry('layout');
-});
 $(document).ready(function(){
 	$.ajax({
 		url:"ajax/procesar-principal.php?accion=1",
