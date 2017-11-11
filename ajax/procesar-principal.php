@@ -1,18 +1,30 @@
 <?php
- switch ($_GET["accion"]) {
- 	case '1':
  	include_once("../class/class-conexion-oracle1.php");
 	$conexion = new Conexion();
   	$conexion->conectar();
-  	$consulta=$conexion->ejecutarInstruccion('SELECT * FROM TBL_FOTOS');
+  	$consulta=$conexion->ejecutarInstruccion('
+  		SELECT CODIGO_FOTO, URL_FOTO
+  			FROM "TBL_FOTOS"');
   		?><div style="padding-left: 50px; padding-right: 40px;">
  			<div class="grid">
  		<?php
 	  	while(($linea=$conexion->obtenerRegistro($consulta))!= false){
 	  			?>
 		      <div class="grid-item">
-	              <img src="<?php echo $linea[4];?>" class="img-responsive" width="250" style="border-radius: 12px;">
-	          </div>
+	              <img src="<?php echo $linea["URL_FOTO"];?>" class="img-responsive" width="250" style="border-radius: 12px;" onclick="mostrar(<?php echo $linea["CODIGO_FOTO"];?>)">
+	              <div class="text-right">
+	              	<div class="btn-group" style="display: none; top: 10px" id="btn<?php echo $linea["CODIGO_FOTO"];?>">
+					  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...
+					  </button>
+					  <ul class="dropdown-menu">
+					    <li><a href="#">Ocultar</a></li>
+					    <li><a href="#">Denunciar</a></li>
+					    <li role="separator" class="divider"></li>
+					    <li><a href="#">Ves este pin porque </a></li>
+					  </ul>
+					</div>
+		          </div>
+		      </div>
 		      <?php	
 	  		
 	  	}?>
@@ -33,10 +45,4 @@
 		</div>
 		<?php*/
 		$conexion->desconectar();
-		break;
- 	
- 	default:
- 		# code...
- 		break;
- }
 ?>
