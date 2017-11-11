@@ -178,7 +178,7 @@
             <div class="col-sm-8 col-sm-offset-2">
               <ul class="nav nav-pills">
               <li role="presentation" class="active"><a href="#">Tableros</a></li>
-              <li role="presentation"><a href="#">Pines</a></li>
+              <li role="presentation"><a href="crearPines.html">Pines</a></li>
                </ul>
               <br>
               <div class="well col-sm-3 e zoom">
@@ -236,7 +236,7 @@
                           </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Crear</button>
+                        <button id="btn-crear" type="button" class="btn btn-default" data-dismiss="modal" onclick="creartablero()">Crear</button>
                       </div>
                   </div>
               
@@ -244,6 +244,11 @@
         </div>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script>
+  function creartablero() {
+    window.location.href ="crear_tablero.html";
+  }
+  </script>
  
 </body>
 </html>
