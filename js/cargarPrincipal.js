@@ -27,8 +27,9 @@ function mas(numero){
 		method:"POST",
 		dataType:"html",
 		success:function(respuesta){
-			$("#pag"+numero).hide();
-			$("#principal").append(respuesta);
+			$("#pag"+numero).remove();
+			$(".grid").append(respuesta);
+			$("#btn-pag").html("<button type='button' class='btn btn-info' id='pag"+(numero+1)+"' onclick='mas("+(numero+1)+")' style='margin-bottom: 10px;'>Pagina "+(numero+1)+"</button>");
 			var $grid = $('.grid').imagesLoaded( function() {
 			  $grid.isotope({
 			    masonry: {
@@ -42,6 +43,7 @@ function mas(numero){
 			    // layout remaining item elements
 			    $grid.isotope('layout');
 			});
+			$grid.isotope('reloadItems');
 		}
 	});
 }
