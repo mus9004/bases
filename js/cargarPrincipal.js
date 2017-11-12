@@ -25,7 +25,7 @@ function mostrar(codigo){
 	$('#btn'+codigo).toggle();
 };
 function redireccionar(codigo){
-	location.href = "pines.html?="+codigo;
+	location.href = "pines.html?pin="+codigo;
 };
 function ocultar(codigo){
 	$('#grid'+codigo).hide();
