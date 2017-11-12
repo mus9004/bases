@@ -30,20 +30,14 @@ function mas(numero){
 			$("#pag"+numero).remove();
 			$(".grid").append(respuesta);
 			$("#btn-pag").html("<button type='button' class='btn btn-info' id='pag"+(numero+1)+"' onclick='mas("+(numero+1)+")' style='margin-bottom: 10px;'>Pagina "+(numero+1)+"</button>");
-			var $grid = $('.grid').imagesLoaded( function() {
-			  $grid.isotope({
+			$('.grid').imagesLoaded( function() {
+			  $('.grid').isotope({
 			    masonry: {
 					columnWidth: 40
 				}
 			  });
 			});
-			$grid.on( 'click', '.grid-item', function() {
-			  // remove clicked element
-			  $(this).toggleClass('gigante');
-			    // layout remaining item elements
-			    $grid.isotope('layout');
-			});
-			$grid.isotope('reloadItems');
+			$('.grid').isotope('reloadItems');
 		}
 	});
 }
