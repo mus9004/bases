@@ -12,7 +12,7 @@ $(document).ready(function(){
 				}
 			  });
 			});
-			$grid.on( 'click', '.grid-item', function() {
+			$grid.on( 'click', '#img', function() {
 			  // remove clicked element
 			  $(this).toggleClass('gigante');
 			    // layout remaining item elements

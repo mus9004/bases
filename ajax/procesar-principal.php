@@ -17,9 +17,9 @@ switch ($_GET["accion"]) {
 	  	while(($linea=$conexion->obtenerRegistro($consulta))!= false){
 	  			?>
 		      <div class="grid-item" id="grid<?php echo $linea["CODIGO_FOTO"];?>">
-	              <img src="<?php echo $linea["URL_FOTO"];?>" class="img-responsive" width="250" style="border-radius: 12px;" onclick="mostrar(<?php echo $linea["CODIGO_FOTO"];?>)">
-	              <div class="text-right">
-	              	<div class="btn-group" style="display: none; top: 10px; margin-bottom: 10px" id="btn<?php echo $linea["CODIGO_FOTO"];?>">
+	              <img src="<?php echo $linea["URL_FOTO"];?>" class="img-responsive" width="250" style="border-radius: 12px;" onclick="mostrar(<?php echo $linea["CODIGO_FOTO"];?>)" id="img">
+	              <div class="text-right" style="height: 0px;">
+	              	<div class="btn-group" style="display: none; top: -40px; left: -10px" id="btn<?php echo $linea["CODIGO_FOTO"];?>">
 	              		<button type="button" class="btn btn-default" onclick="redireccionar(<?php echo $linea["CODIGO_FOTO"];?>)">Ver Pin</button>
 					  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...
 					  </button>
@@ -57,9 +57,9 @@ switch ($_GET["accion"]) {
 	  	while(($linea=$conexion->obtenerRegistro($consulta))!= false){
 	  			?>
 		      <div class="grid-item" id="grid<?php echo $linea["CODIGO_FOTO"];?>">
-	              <img src="<?php echo $linea["URL_FOTO"];?>" class="img-responsive" width="250" style="border-radius: 12px;" onclick="mostrar(<?php echo $linea["CODIGO_FOTO"];?>)">
-	              <div class="text-right">
-	              	<div class="btn-group" style="display: none; top: 10px; margin-bottom: 10px" id="btn<?php echo $linea["CODIGO_FOTO"];?>">
+	              <img src="<?php echo $linea["URL_FOTO"];?>" class="img-responsive" width="250" style="border-radius: 12px;" onclick="mostrar(<?php echo $linea["CODIGO_FOTO"];?>)" id="img">
+	              <div class="text-right" style="height: 0px;">
+	              	<div class="btn-group" style="display: none; top: -40px; left: -10px" id="btn<?php echo $linea["CODIGO_FOTO"];?>">
 	              		<button type="button" class="btn btn-default" onclick="redireccionar(<?php echo $linea["CODIGO_FOTO"];?>)">Ver Pin</button>
 					  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...
 					  </button>
