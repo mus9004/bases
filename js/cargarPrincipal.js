@@ -49,6 +49,7 @@ function redireccionar(codigo){
 };
 function ocultar(codigo){
 	$('#grid'+codigo).hide();
+	$('.grid').isotope('layout');
 };
 $("#perfil").click(function(){
       location.href ="perfil.html";
