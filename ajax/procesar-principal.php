@@ -10,14 +10,15 @@
  		<?php
 	  	while(($linea=$conexion->obtenerRegistro($consulta))!= false){
 	  			?>
-		      <div class="grid-item">
+		      <div class="grid-item" id="grid<?php echo $linea["CODIGO_FOTO"];?>">
 	              <img src="<?php echo $linea["URL_FOTO"];?>" class="img-responsive" width="250" style="border-radius: 12px;" onclick="mostrar(<?php echo $linea["CODIGO_FOTO"];?>)">
 	              <div class="text-right">
-	              	<div class="btn-group" style="display: none; top: 10px" id="btn<?php echo $linea["CODIGO_FOTO"];?>">
-					  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...
+	              	<div class="btn-group" style="display: none; top: 10px; margin-bottom: 10px" id="btn<?php echo $linea["CODIGO_FOTO"];?>">
+	              		<button type="button" class="btn btn-default" onclick="redireccionar(<?php echo $linea["CODIGO_FOTO"];?>)">Ver Pin</button>
+					  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...
 					  </button>
 					  <ul class="dropdown-menu">
-					    <li><a href="#">Ocultar</a></li>
+					    <li><a onclick="ocultar(<?php echo $linea["CODIGO_FOTO"];?>)">Ocultar</a></li>
 					    <li><a href="#">Denunciar</a></li>
 					    <li role="separator" class="divider"></li>
 					    <li><a href="#">Ves este pin porque </a></li>

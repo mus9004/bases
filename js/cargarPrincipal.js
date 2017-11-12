@@ -24,6 +24,12 @@ $(document).ready(function(){
 function mostrar(codigo){
 	$('#btn'+codigo).toggle();
 };
+function redireccionar(codigo){
+	location.href = "pines.html?="+codigo;
+};
+function ocultar(codigo){
+	$('#grid'+codigo).hide();
+};
 $("#perfil").click(function(){
       location.href ="perfil.html";
     });
