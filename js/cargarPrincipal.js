@@ -21,6 +21,30 @@ $(document).ready(function(){
 		}
 	});
 });
+function mas(numero){
+	$.ajax({
+		url:"ajax/procesar-principal.php?accion="+numero,
+		method:"POST",
+		dataType:"html",
+		success:function(respuesta){
+			$("#pag"+numero).hide();
+			$("#principal").append(respuesta);
+			var $grid = $('.grid').imagesLoaded( function() {
+			  $grid.isotope({
+			    masonry: {
+					columnWidth: 40
+				}
+			  });
+			});
+			$grid.on( 'click', '.grid-item', function() {
+			  // remove clicked element
+			  $(this).toggleClass('gigante');
+			    // layout remaining item elements
+			    $grid.isotope('layout');
+			});
+		}
+	});
+}
 function mostrar(codigo){
 	$('#btn'+codigo).toggle();
 };

@@ -2,9 +2,13 @@
  	include_once("../class/class-conexion-oracle1.php");
 	$conexion = new Conexion();
   	$conexion->conectar();
-  	$consulta=$conexion->ejecutarInstruccion('
-  		SELECT CODIGO_FOTO, URL_FOTO
-  			FROM "TBL_FOTOS"');
+  	$consulta=$conexion->ejecutarInstruccion('SELECT * FROM(
+  		SELECT A.*, ROWNUM RW
+  		FROM (
+           SELECT CODIGO_FOTO, URL_FOTO
+            FROM "TBL_FOTOS") A
+        )
+        WHERE RW BETWEEN '.(1+(($_GET["accion"]-1)*20)).' AND '.(20+(($_GET["accion"]-1)*20)));
   		?><div style="padding-left: 50px; padding-right: 40px;">
  			<div class="grid">
  		<?php
@@ -29,8 +33,11 @@
 		      <?php	
 	  		
 	  	}?>
-	  	</div>
-			</div>
+	  		</div>
+		</div>
+			<div class="text-center">
+		      	<button type="button" class="btn btn-info" id="pag<?php echo $_GET["accion"]+1;?>" onclick="mas(<?php echo $_GET["accion"]+1;?>)" style="margin-bottom: 10px;">Pagina <?php echo $_GET["accion"]+1;?></button>
+		      </div>
 		<?php
  		/*?><div style="padding-left: 50px; padding-right: 40px;">
  			<div class="grid">
