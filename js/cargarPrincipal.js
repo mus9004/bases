@@ -54,3 +54,12 @@ function ocultar(codigo){
 $("#perfil").click(function(){
       location.href ="perfil.html";
     });
+$(".dropdown-button").dropdown();
+$("#buscar").click(function(){
+      $('#barra').hide();;
+    });
+$("#buscar").click(function(){
+      $('#barra').hide();
+      $('#busqueda').show();
+      $('.label-icon').addClass('active');
+    });
