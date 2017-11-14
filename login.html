@@ -9,8 +9,8 @@
      <link rel="icon" type="image/icon" href="img/pinterest.ico" />
     <title>Pinterest</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-    <link href="signin.css" rel="stylesheet">
+    <!--<link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">-->
+    <!--<link href="signin.css" rel="stylesheet">-->
     <link rel="stylesheet" type="text/css" href="css/signin.css">
   </head>
 
@@ -36,17 +36,19 @@
                       <h1 style="text-align: center; font-weight: bolder;">Inicia sesión para ver más</h1>
                     </div>
                     <div class="form-group">
-                       <input class="form-control" placeholder="correo o numero de telefono" name="email" type="text">
+                       <input class="form-control" placeholder="correo o numero de telefono" name="email" id="inputEmail" type="text">
                     </div>
                     <div class="form-group">
-                      <input class="form-control" placeholder="contraseña" name="password" type="password" value="">
+                      <input class="form-control" placeholder="contraseña" name="password" id="inputPassword" type="password" value="">
+
                     </div>
-                    <div class="checkbox">
+                    <div class="checkbox" >
                       <label>
                         <input name="remember" type="checkbox" value="Remember Me"> Remember Me
                       </label>
+                       
                     </div>
-                  <input class="btn btn-lg btn-danger btn-block" type="submit" value="Iniciar sesión">
+                  <input class="btn btn-lg btn-danger btn-block" type="button" value="Iniciar sesión" id="btn-login">
                   <div>
                     <h4 style="text-align: center;">O</h4>
                   </div>
@@ -75,15 +77,16 @@
             
           </form>
     </div>
+     
 
               
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
-   <script type="text/javascript"  src="js/controlador.js"></script> 
-  <script type="text/javascript">
+  <script type="text/javascript"  src="js/controlacceso.js"></script> 
+  <script>
 
+  </script>
 
-  </script>         
   
   </body>
 </html>
