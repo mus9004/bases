@@ -12,7 +12,7 @@ $(document).ready(function(){
 				}
 			  });
 			});
-			$grid.on( 'click', '.grid-item', function() {
+			$grid.on( 'click', '#img', function() {
 			  // remove clicked element
 			  $(this).toggleClass('gigante');
 			    // layout remaining item elements
@@ -49,7 +49,17 @@ function redireccionar(codigo){
 };
 function ocultar(codigo){
 	$('#grid'+codigo).hide();
+	$('.grid').isotope('layout');
 };
 $("#perfil").click(function(){
       location.href ="perfil.html";
+    });
+$(".dropdown-button").dropdown();
+$("#buscar").click(function(){
+      $('#barra').hide();;
+    });
+$("#buscar").click(function(){
+      $('#barra').hide();
+      $('#busqueda').show();
+      $('.label-icon').addClass('active');
     });
