@@ -26,7 +26,7 @@
       <div class="row vertical-offset-100">
         <div class="col-md-5 col-md-offset-5">
           <div class="panel panel-default">
-            <div class="panel-body">
+            <div class="panel-body" id="div-bod">
               <form accept-charset="UTF-8" role="form">
                   <fieldset style="margin: 20px">
                   <div style="display:block;height:45px;margin:5px auto;width:45px;">
@@ -36,18 +36,18 @@
                       <h1 style="text-align: center; font-weight: bolder;">Inicia sesión para ver más</h1>
                     </div>
                     <div class="form-group">
-                       <input class="form-control" placeholder="correo o numero de telefono" name="email" id="inputEmail" type="text">
+                       <input class="form-control" placeholder="correo" name="email" id="inputEmail" type="text">
                     </div>
                     <div class="form-group">
                       <input class="form-control" placeholder="contraseña" name="password" id="inputPassword" type="password" value="">
 
                     </div>
-                    <div class="checkbox" >
+                    <!--<div class="checkbox" >
                       <label>
                         <input name="remember" type="checkbox" value="Remember Me"> Remember Me
                       </label>
                        
-                    </div>
+                    </div>-->
                   <input class="btn btn-lg btn-danger btn-block" type="button" value="Iniciar sesión" id="btn-login">
                   <div>
                     <h4 style="text-align: center;">O</h4>
@@ -62,7 +62,8 @@
                   <div>
                     <h5 style="text-align: center;"><strong>¿Olvidaste tu contraseña?</strong>
                 ¿Representas a una empresa? <a href=""> Empieza aquí</a> .</h5><br>
-                    <h5 style="text-align: center;">¿Aún no estás en Pinterest? <a href="">Registrarte</a></h5>
+                    <h5 style="text-align: center;">¿Aún no estás en Pinterest?  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Registrarse</button>
+                    <!--<a href="" id="lnk-reg">Registrarte</a></h5>-->
                   </div>
                 </fieldset>
               </form>
@@ -71,6 +72,66 @@
        </div>
      </div>
     </div>
+
+    <div class="container">
+      
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Registro de Usuario</h4>
+            </div>
+            <div class="modal-body">
+                    <div class="form-group">
+                       <input class="form-control" placeholder="correo" name="reg-email" id="reg-email" type="text">
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" placeholder="contraseña" name="reg-password" id="reg-password" type="password" value="">
+                    </div>  
+                     <hr>
+                     <div class="form-group">
+                     <h3>
+                      <label>Informacion Personal</label>
+                      </h3>
+                       <input class="form-control" placeholder="Nombre Completo" name="reg-nom" id="reg-nom" type="text">
+                    </div>  
+                     <div class="form-group">
+                       <input class="form-control" placeholder="Telefono" name="reg-telefono" id="reg-telefono" type="text">
+                    </div>    
+                    <div class="form-group">
+                      <form action="">
+                          <select id="sl-gen" class="form-control">
+                              <option value="1">Hombre</option>
+                              <option value="2">Mujer</option>
+                          </select>
+                      </form>   
+                    </div>    
+                    <div class="form-group">
+                      
+                        
+                        <select id="sl-lug" class="form-control">
+                              <option value="1">Honduras</option>
+                              <option value="2">Estados Unidos</option>
+                      </select>
+                    </div>                       
+              <p></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success"  id="btn-datos"  >Guardar</button>
+              <button type="button" class="btn btn-success" data-dismiss="modal" >cerrar</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+
 
      <div id="navbar" class="navbar-collapse collapse" style="padding-top: 80px">
           <form class="navbar-form navbar-right">  
