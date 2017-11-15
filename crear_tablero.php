@@ -1,3 +1,42 @@
+<?php
+    session_start();
+    include_once("class/class-conexion-oracle1.php");
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $codigousuario=$_SESSION['codigo_usuario'];
+        $codigo_table=$_GET['codigo_tablero'];
+        $seguidores=$conexion->ejecutarInstruccion("
+                                            SELECT CODIGO_TABLERO, COUNT(*)  AS SEGUIDORES
+                                            FROM TBL_SEGUIDORES_X_TABLEERO
+                                            GROUP BY CODIGO_TABLERO
+                                            HAVING CODIGO_TABLERO =$codigo_table
+                                              ");
+        $nombre_tab=$conexion->ejecutarInstruccion("
+                                            SELECT NOMBRE_TABLERO
+                                            FROM TBL_TABLERO
+                                            WHERE CODIGO_TABLERO =$codigo_table
+                                              ");
+
+         $usuario=$conexion->ejecutarInstruccion("
+                                            SELECT CODIGO_USUARIO,
+                                                    NOMBRE ||' ' ||'('|| ALIAS ||')' AS NOMBRE    
+                                            FROM TBL_USUARIO
+                                            WHERE CODIGO_USUARIO = $codigousuario
+                                              ");
+         $seguidores1=$conexion->ejecutarInstruccion("
+                                            SELECT A.CODIGO_TABLERO, B.NOMBRE ||' ' ||'('|| B.ALIAS ||')' AS NOMBRE 
+                                            FROM TBL_SEGUIDORES_X_TABLEERO A
+                                            INNER JOIN TBL_USUARIO B
+                                            ON (A.CODIGO_USUARIO=B.CODIGO_USUARIO)
+                                            WHERE A.CODIGO_TABLERO =$codigo_table
+                                              ");
+        
+        $linea1=$conexion->obtenerRegistro($seguidores);
+        $linea3=$conexion->obtenerRegistro($seguidores1);
+        $linea=$conexion->obtenerRegistro($nombre_tab);
+        $linea2=$conexion->obtenerRegistro($usuario);
+    ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -172,7 +211,7 @@
                       </ul>
                       <button type="button" class="btn btn-default dropdown-toggle" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorías <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
                       </button>
-                      <button type="button" class="btn btn-default">Guardado
+                      <button type="button" id="perfil" class="btn btn-default">perfil
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                       </button>
                       <button type="button" class="btn btn-default">Notificaciones
@@ -228,7 +267,7 @@
       <div class="col-sm-12">
           <div class="col-sm-8 col-sm-offset-2" >
             <div id="div-nombre" name="div-nombre" class="col-sm-6">
-              <h3 ><span id="nombre-tablero">Nombre del tablero</span></h3>
+              <h3 ><span id="nombre-tablero"><?php echo $linea[0]?></span></h3>
             </div>
           </div>
       </div>
@@ -236,18 +275,20 @@
 
      <div >
       <div class="col-sm-12">
+        <div class="col-sm-10 col-sm-offset-2" >
+           </div>
           <div class="col-sm-10 col-sm-offset-2" >
-            <div class="col-sm-8">
+            <div class="col-sm-3">
+              <p style="color: #b5b5b5;" class="subEtiquetasPefil" >0 pines</p>
+              <p style="color: #b5b5b5;" class="subEtiquetasPefil" ><?php echo $linea1[1]?> seguidores </p><br>
               <br>
-              <br>
-              <p  class="subEtiquetasPefil">0      Seguidores</p>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-8">
               <br>
               <center>
                 <a class="idnav" href="#myModal1"  data-toggle="modal" style="color: #000000"><i style="font-size: 30px; margin-top:5px; align-content: center;" class="glyphicon glyphicon-plus-sign"></i></a>
                 <img style="width: 60px" id="perfil" src="img/icon.png">
-              </center>
+              </center><br>
              </div>
           </div>
 
@@ -441,6 +482,7 @@
                         <h2 class="modal-title"><strong>Edita tu tablero</strong></h2>
                       </div>
                           <div class="form-group">
+                            <input type="text" style="visibility: hidden;" id="txt-sitio" name="txt-sitio" value="<?php echo $_GET['codigo_tablero']?>">
 
                             <table class="table ">
                               <tr>
@@ -449,6 +491,7 @@
                                 </td>
                                 <td>
                                   <input style="background: #E4E0DF" aria-invalid="false" class="form-control" type="text" name="txt-nombre" id="txt-nombre" placeholder="nombre del tablero" required></td>
+
                                 </td>
                               </tr>
                               <tr>
@@ -456,7 +499,7 @@
                                   <h4>Descipcion</h4>
                                 </td>
                                 <td>
-                                  <input style="background: #E4E0DF" aria-invalid="false" class="form-control" type="textarea" name="txt-descripcion" id="txt-descripcion" placeholder="¿Cual es el tema de este tablero?" required></td>
+                                  <input style="background: #E4E0DF" aria-invalid="false" class="form-control" type="textarea" name="txt-descripcion1" id="txt-descripcion1" placeholder="¿Cual es el tema de este tablero?" required></td>
                                 </td>
                               </tr>
                               <tr>
@@ -480,7 +523,7 @@
                                 <td>
                                   <div class="material-switch pull-left">
                                         <br>
-                                        <input class="form-control" id="someSwitchOptionDanger" name="someSwitchOption001" type="checkbox"/>
+                                        <input class="form-control" id="someSwitchOptionDanger" name="chksecreto" type="checkbox"/>
                                         <label  for="someSwitchOptionDanger" class="label-danger"></label>
                                     </div>
                                 </td>
@@ -498,7 +541,7 @@
                                     <img style="width: 30px" class="img-responsive" id="perfil" src="img/icon.png">
                                     
                                  </div> 
-                                 <div class="col-sm-6"><strong><h6>Has creado este tablero</h6></strong>
+                                 <div class="col-sm-6"><strong><h6><?php echo $linea2[1]?> Has creado este tablero</h6></strong>
                                       </div>
                                 </td>
                               </tr>
@@ -506,11 +549,11 @@
                           </div>
                       <div class="modal-footer">
                         <div class="col-sm-3">
-                          <button type="button" class="btn btn-default">Eliminar tablero</button>
+                          <button type="button" id="btn-eliminar" class="btn btn-default">Eliminar tablero</button>
                         </div>
                         
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-danger">Guardar</button>
+                        <button type="button" id="btn-edi" class="btn btn-danger">Guardar</button>
                       </div>
                   </div>
               
@@ -535,15 +578,19 @@
                             		<td style="width: 200px">
                             			<div class="input-group">
 						                  <input style="width: 180px" type="text" class="form-control" placeholder="Search">
+                              <?php while(($linea3=$conexion->obtenerRegistro($seguidores1))!= false){
+                               echo '<h4>'.$linea3['NOMBRE'].'</h4>';
+
+                              }?>
                             		</td>
 
                             		<td style="width: 200px">
-                            			<div><strong>Colaboradores</strong></div>
+                            			<div><strong>Desarrollador</strong></div>
                             			
                             			<div class="col-sm-1" ">
 		                                    <center><img style="width: 30px" class="img-responsive" id="perfil" src="img/icon.png"> </center>
 		                                 </div> 
-		                                 <div class="col-sm-8"><strong><h5>Nombre del usuario</h5></strong>
+		                                 <div class="col-sm-8"><strong><h5><?php echo $linea2[1]?></h5></strong>
 		                                 	<h6>Has creado este tablero</h5>
 		                                 </div>
 

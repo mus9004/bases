@@ -1,26 +1,27 @@
 <?php
-    //session_start();
+    session_start();
     include_once("class/class-conexion-oracle1.php");
         $conexion = new Conexion();
         $conexion->conectar();
+        $codigousuario=$_SESSION['codigo_usuario'];
         $usuario=$conexion->ejecutarInstruccion("
                                             SELECT CODIGO_USUARIO,
                                                     NOMBRE ||' ' ||'('|| ALIAS ||')' AS NOMBRE    
                                             FROM TBL_USUARIO
-                                            WHERE CODIGO_USUARIO = 1
+                                            WHERE CODIGO_USUARIO = $codigousuario
                                               ");
         $seguidores=$conexion->ejecutarInstruccion("
                                             SELECT CODIGO_USUARIO, COUNT(*)  AS SEGUIDORES
                                             FROM TBL_SEGUIDORES_X_USUARIO
                                             GROUP BY CODIGO_USUARIO
-                                            HAVING CODIGO_USUARIO = 1
+                                            HAVING CODIGO_USUARIO = $codigousuario
                                               ");
 
         $siguiendo=$conexion->ejecutarInstruccion("
                                             SELECT CODIGO_SEGUIDOR, COUNT(*)  AS SIGUIENDO
                                             FROM TBL_SEGUIDORES_X_USUARIO
                                             GROUP BY CODIGO_SEGUIDOR
-                                            HAVING CODIGO_SEGUIDOR = 1
+                                            HAVING CODIGO_SEGUIDOR = $codigousuario
                                               ");
         $linea=$conexion->obtenerRegistro($usuario);
         $linea1=$conexion->obtenerRegistro($seguidores);
@@ -158,7 +159,7 @@
                       </ul>
                       <button type="button" class="btn btn-default dropdown-toggle" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorías <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
                       </button>
-                      <button type="button" class="btn btn-default">Guardado
+                      <button type="button" id="perfil" class="btn btn-default">perfil
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                       </button>
                       <button type="button" class="btn btn-default">Notificaciones
@@ -212,7 +213,7 @@
           <div class="col-sm-12">
             <div class="col-sm-8 col-sm-offset-2">
               <ul class="nav nav-pills">
-              <li role="presentation" class="active"><a href="#">Tableros</a></li>
+              <li role="presentation" class="active"><a href="ver_tableros.php">Tableros</a></li>
               <li role="presentation"><a href="crearPines.php">Pines</a></li>
                </ul>
               <br>
