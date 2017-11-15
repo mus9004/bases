@@ -199,23 +199,27 @@
               </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             </div> 
           </div>
-      </div>
-
-<div style="margin-top: 60px">
-    <div id="principal1">
-            
-            
-    </div>
-</div>
-  
-
-    </div>
+<!--<div >
     <div class="well col-sm-12 " style="max-width: 100%">
          <p id="etiquetacreartablero "><b>Tableros privados</b></p>
          <div class="well col-sm-3 col-sm-offset-2 e zoom">
                 <center><a href="#myModal"  data-toggle="modal"><i  style="font-size:35px; margin-top: 35px"class="glyphicon glyphicon-plus-sign"></i></a></center>
           </div>
+    </div>-->
+</div>
+      </div>
+
+
+
+<div style="margin-top: 600px">
+    <div id="principal1">
+            
+            
     </div>
+</div>
+ 
+
+  </div>
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
