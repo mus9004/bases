@@ -58,20 +58,18 @@
     </div>
       <form style="margin-top: 8px;">
            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search">
+              <input type="text" id="busqueda" class="form-control" placeholder="Search">
                 <div class="input-group-btn">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tableros <span class="glyphicon glyphicon-chevron-down"></span></span></button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="tipo_busqueda">Tableros&nbsp;<span class="glyphicon glyphicon-chevron-down"></span></span></button>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Todos los Pines</a></li>
+                            <li><a href="" id="op1">Todos los Pines&nbsp;<span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">Tus Pines</a></li>
+                            <li><a id="op2" onclick="que_buscar(2)">Tus Pines&nbsp;</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">Pines que se pueden comprar</a></li>
+                            <li><a id="op3" onclick='que_buscar(3)'>Gente&nbsp;</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">Gente</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Tableros <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a></li>
+                            <li><a href="tablero.html" id="op4">Tableros&nbsp;</a></li>
                         </ul>
                     </div>
                     <div class="btn-group">
