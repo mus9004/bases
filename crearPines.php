@@ -129,7 +129,7 @@
                       </ul>
                       <button type="button" class="btn btn-default dropdown-toggle" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorías <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
                       </button>
-                      <button type="button" class="btn btn-default">Guardado
+                      <button type="button" id="perfil" class="btn btn-default">perfil
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                       </button>
                       <button type="button" class="btn btn-default">Notificaciones
