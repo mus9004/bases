@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="pinterest_actual" id="83A5BA99-4146-538F-BDDF-2F9F4EB09048" version="3.5">
+<createdBy>HP</createdBy>
+<createdTime>2017-11-15 07:01:20 UTC</createdTime>
+<ownerDesignName>pinterest_actual</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>83A5BA99-4146-538F-BDDF-2F9F4EB09048</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="1240780F-66D7-DF8C-5122-9DFA331CB546">
+<designStoragePath>C:\</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>
