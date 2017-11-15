@@ -11,10 +11,57 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!--<link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">-->
     <!--<link href="signin.css" rel="stylesheet">-->
+    
     <link rel="stylesheet" type="text/css" href="css/signin.css">
+  <style>
+
+      html { 
+        background: white ; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+
+      @keyframes animatedBackground {
+        from   { background-position: 0 0; }
+        to { background-position: 0px 622px; } /* set this to the height of the image */
+          }
+          @-webkit-keyframes animatedBackground {
+            from   { background-position: 0 0; }
+        to { background-position: 0px 622px } /* set this to the height of the image */
+          }
+          @-ms-keyframes animatedBackground {
+            from    { background-position: 0 0; }
+        to { background-position: 0px 622px; } /* set this to the height of the image */
+          }
+          @-moz-keyframes animatedBackground {
+            from   { background-position: 0 0; }
+        to { background-position: 0px 622px; } /* set this to the height of the image */
+          }
+
+      html{width:100%;}
+
+      #animate-area2  { 
+        width: 100%; 
+       height: 920px; 
+        position:absolute;
+        background-image: url(img/fondo6.jpg);
+        top:0;
+        left:50%;
+        transform: translateX(-50%);
+        background-position: 0 0;
+        background-repeat: repeat-y;
+        animation: animatedBackground 40s infinite linear;
+        -ms-animation: animatedBackground 40s infinite linear;
+        -moz-animation: animatedBackground 40s infinite linear;
+        -webkit-animation: animatedBackground 40s infinite linear;
+      }
+    </style>
+
   </head>
 
-  <body class="fondo" style="background-color: #E6E6E6">
+  <body class="fondo" id="animate-area2" style="background-color: #E6E6E6">
  
     <div id="navbar" class="navbar-collapse collapse" style="padding-top: 80px">
           <form class="navbar-form navbar-right">  
@@ -24,7 +71,7 @@
 
     <div class="container">
       <div class="row vertical-offset-100">
-        <div class="col-md-5 col-md-offset-5">
+        <div class="col-md-5 col-md-offset-4">
           <div class="panel panel-default">
             <div class="panel-body" id="div-bod">
               <form accept-charset="UTF-8" role="form">
@@ -91,7 +138,7 @@
                        <input class="form-control" placeholder="correo" name="reg-email" id="reg-email" type="text">
                     </div>
                     <div class="form-group">
-                      
+
                       <input class="form-control" placeholder="contraseña" name="reg-password" id="reg-password" type="text">
                     </div>  
                      <hr>

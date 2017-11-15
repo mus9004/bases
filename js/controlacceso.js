@@ -34,12 +34,23 @@
         method:"POST",
         dataType:"json",
         success: function(result){
-            alert(result);
-            if (result==1) 
+
+            if (result!=0) 
               alert("El Correo ya existe");
-              //$("#msgtxt").html('<div style="color: red">Informacion Invalida </div>');
+
             if (result==0)  
+                {
+                    $.ajax({
+                      url: "obtenercodigo.php", 
+                      data:parametros,
+                      method:"POST",
+                      dataType: "text",
+                      success: function(result1){
+
+                        }
+                    });             
                location.href ="Principal.html";         
+             };
              
           }
       });
