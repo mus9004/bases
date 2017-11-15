@@ -7,6 +7,8 @@ $consulta=$conexion->ejecutarInstruccion("SELECT VerificarUsuario('".$_POST["inp
 $respuesta = array();
 $linea=$conexion->obtenerRegistro($consulta);
 ///$respuesta["codigo_resultado"] =$linea[0]
+session_start();
+$_SESSION['codigo_usuario']=$linea[0];
 echo json_encode($linea[0]);
 //echo json_encode($consulta);
 
