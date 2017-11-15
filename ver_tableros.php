@@ -114,6 +114,16 @@
         background: inherit;
         left: 20px;
     }
+    .imagen {
+    width: 250;
+    border-radius: 12px;
+}
+.gigante {
+    background-color: rgb(243,243,243);
+    padding: 10px;
+    padding-bottom: 50px;
+    border-radius: 12px;
+}
 
 </style>
 </head>

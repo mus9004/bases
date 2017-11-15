@@ -16,6 +16,12 @@ $(document).ready(function(){
 		          gutter: 30
 		        }
 		      });
+			$('.grid').on( 'click', '#img', function() {
+			  // remove clicked element
+			  $(this).toggleClass('gigante');
+			    // layout remaining item elements
+			    $grid.isotope('layout');
+			});
 		}
 	});
 });
