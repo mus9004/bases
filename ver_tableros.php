@@ -3,7 +3,7 @@
 <head>
   <title>Pinterest/Perfil</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/buscar.css">
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <meta charset="utf-8">
   <style type="text/css">
     #btns-subnav{
@@ -98,7 +98,6 @@
         left: 20px;
     }
 
-
 </style>
 </head>
 <body>
@@ -153,179 +152,94 @@
               <br>
               </div>
             <div class="col-sm-6">
-            <table>
-            <tr>
-              <h1 id="nombrePerfil">Ana Iris</h1>
+              <h1 id="nombrePerfil">Nombre del tablero</h1>
               </div>
-            </tr>
-           <tr>
-            <div class="col-sm-2">
-                 <br>
-                  <br>
-                  <p  class="subEtiquetasPefil">0</p>
-                  <p style="color: #b5b5b5;" class="subEtiquetasPefil" >Seguidor</p>
-                
-            </tr>
-            </div>
-                <td>
-                  <div class="col-sm-2" style="left: 90px;">
-                  <br>
-                  <br>
-                  <p  class="subEtiquetasPefil">0</p>
-                  <p style="color: #b5b5b5; " class="subEtiquetasPefil" >Siguiendo</p>
-                </td>
-            
-            </table>
-            </div>
             <div class="col-sm-2">
               <br>
               <center>
                 <img id="perfil" src="img/icon.png">
               </center>
              </div>
-          </div>
-
-
-          <div class="col-sm-12">
-            <div class="col-sm-8 col-sm-offset-2" style="top: 80px;">
-              <ul class="nav nav-pills">
-              <li role="presentation" ><a href="perfil.html">Tableros</a></li>
-              <li role="presentation" class="active"><a href="#">Pines</a></li>
-               </ul>
+             <div class="col-sm-12">
               <br>
-            </div> 
-            <div class="col-sm-12 col-sm-offset-2" style="top: 90px">
-                <p id="etiquetacreartablero"><b>Crear Pines</b></p>
-                <div></div>
+              <br>
+              <p style="color: #b5b5b5;" class="subEtiquetasPefil" >0 pines</p>
+            </div>
+            <div class="col-sm-12">
+              <p style="color: #b5b5b5;" class="subEtiquetasPefil" >0 seguidores </p><br>
+              <br>
             </div>
           </div>
+           <div id="prueba">
+            
+          </div>
+
+         <div class="col-sm-12">
+            <div class="col-sm-8 col-sm-offset-2">
+              <ul class="nav nav-pills">
+              <li role="presentation" class="active"><a href="#">Tableros</a></li>
+              <li role="presentation"><a href="crearPines.php">Pines</a></li>
+               </ul>
+              <br>
+              <div class="well col-sm-3 e zoom">
+                <center><a href="#myModal"  data-toggle="modal"><i  style="font-size:35px; margin-top: 35px"class="glyphicon glyphicon-plus-sign"></i></a></center>
+              </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            </div> 
+          </div>
       </div>
+<div style="margin-top: 60px">
+  <div id="principal">
+  </div>
+</div>
+  
     </div>
-    <div >
-         
-         <div class="well col-sm-3 col-sm-offset-2 e zoom" style="    margin-left: 120px;
-              top: 150px;">
+    <div class="well col-sm-12 " style="max-width: 100%">
+         <p id="etiquetacreartablero "><b>Tableros privados</b></p>
+         <div class="well col-sm-3 col-sm-offset-2 e zoom">
                 <center><a href="#myModal"  data-toggle="modal"><i  style="font-size:35px; margin-top: 35px"class="glyphicon glyphicon-plus-sign"></i></a></center>
           </div>
     </div>
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog">
             
                   <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 style="text-align: center;" class="modal-title"><strong> Crear Pin</strong> </h3>
+                        <h4 class="modal-title">Crear tablero</h4>
                       </div>
                           <div class="form-group">
 
                             <table class="table ">
                               <tr>
-                                <td style="align-items: center;" rowspan="4">
-                                  <br><br>
-                                  <form style="width: 200px" method="post" id="formulario" enctype="multipart/form-data">
-                                   <h4>Cargar Imagen:</h4>
-                                  <input style="width: 100%" type="file" name="file">
-                                 </form><br>
-                                  <input type="text" id="txt-imagen" name="txt-imagen" placeholder="img/001.jpg" required class="form-control">
+                                <td>
+                                  <h4>Nombre</h4>
                                 </td>
-                                <td rowspan="2">
-                                  <h4>Añade una descripcion</h4>
-                                  <input style="background: #E4E0DF" aria-invalid="false" class="form-control" type="textarea" name="txt-descripcion" id="txt-descripcion" placeholder="Descripcion" required>
+                                <td>
+                                  <form method="POST" action="crear_tablero.php">
+                                  <input aria-invalid="false" class="form-control" type="text" name="txt-nombre" id="txt-nombre" placeholder="Como lugar que visitar o recetas que hacer" required></td>
+                                  </form>
                                 </td>
                               </tr>
                               <tr>
-                                <td></td>
-                              </tr>
-                              <tr>
-                                <td rowspan="2">
-                                   <h4>Enlaza con el sitio web</h4>
-                                  <input style="background: #E4E0DF" aria-invalid="false" class="form-control" type="text" name="txt-nombre" id="txt-nombre" placeholder="http://" required>
+                                <td>
+                                  <h4>Secreto</h4>
+                                  <a href=""><h5>Mas informacion</h5>
                                 </td>
-                              </tr>
-                              <tr>
-                                <td></td>
+                                <td>
+                                  <div class="material-switch pull-left">
+                                        <br>
+                                        <input class="form-control" id="someSwitchOptionDanger" name="chk-secreto" type="checkbox"/>
+                                        <label  for="someSwitchOptionDanger" class="label-danger"></label>
+                                    </div>
+                                </td>
                               </tr>
                             </table>     
                           </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="crearPin()">Crear</button>
-                      </div>
-                  </div>
-              
-            </div>
-        </div>
-
-        <!--modal dos-->
-        <div class="modal fade" id="myModal1" role="dialog">
-             <div class="modal-dialog modal-lg">
-                <div class="modal-content col-lg-12">
-                  <div >
-                    <div class=" col-lg-6">
-                      <br><br><br>
-                      <div class="col-lg-6" style="text-align: center;">
-                        <img src="img/anillo6.jpg" style="width: 256px; height: 256px">
-                        <br><br>
-                        descripcion pin
-                        <br><br><br>
-                      </div>
-
-                    </div>
-                    
-                    <div class=" col-lg-6">
-                      <div >
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 style="text-align: center;" class="modal-title"><strong> seleccionar tablero</strong> </h3>
-                      </div>
-                       <div class="flexsearch">
-                            <div class="flexsearch--wrapper">
-                              <form class="flexsearch--form" action="#" method="post">
-                                <div class="flexsearch--input-wrapper">
-                                  <input class="flexsearch--input" type="search" placeholder="Buscar">
-                                </div>
-                                <input class="flexsearch--submit" type="submit" value="&#10140;"/>
-                              </form>
-                            </div>
-                        </div><br>
-                        <div>
-                          Todos los tableros
-                          <table class="table table-hover ">
-                              <tr>
-                                <td id="capa">
-                                  <img src="img/anillo7.jpg" height="15%" class="img-circle">&nbsp  nombre del tablero &nbsp &nbsp &nbsp 
-                                
-                                  <button id="btn-guardar" style="width: 130px; text-align: center;" type="button" class="btn btn-danger" data-dismiss="modal" onclick="guardar()">Guardar</button>
-                                </td>
-                              </tr>
-                            </table>  
-                        </div>
-                        
-                    </div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-        </div>
-
-
-        <!-- Modal tres -->
-        <div class="modal fade" id="myModal2" role="dialog">
-            <div class="modal-dialog modal-lg">
-            
-                  <div class="modal-content">
-                      <div class="modal-header">
-                        <h3  class="modal-title"><strong> Guardado en "nombre del tablero"</strong> </h3>
-                      </div>
-                      <div style="text-align: center;">
-                        <img src="img/anillo6.jpg" style="height: 50%">
-                      </div>
-                         
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button id="btn-crear" type="button" class="btn btn-default" data-dismiss="modal" >Crear</button>
                       </div>
                   </div>
               
@@ -333,22 +247,20 @@
         </div>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-   <script>
-  function crearPin(){
-    $('#myModal1').modal('show');
-  }
-
-   $("#capa").hover(function(){
-        $("#btn-guardar").show();
-    }, function(){
-        $("#btn-guardar").hide();
-    });
-
-   function guardar(){
-    $('#myModal2').modal('show');
+   <script src="js/tablero.js"></script>
+  <script>
+    function redireccionar(codigo){
+     codigo= $("#txt-nombre").val();
+  window.location.href = "crear_tablero.php?tablero="+codigo;
+};
   }
   </script>
-
+     <!--  <script type="text/javascript">
+                  
+            $(document).ready(function(){
+                cargardatos();
+            });
+    </script> -->
  
 </body>
 </html>

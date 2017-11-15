@@ -1,6 +1,6 @@
 $(document).ready(function(){	
 	$("#btn-crear").click(function(){
-		
+		var b=$("#txt-nombre").val();
 		if ($('input:checkbox[name=chk-secreto]:checked').is(':checked')) {
 			var a=2
 		}
@@ -8,7 +8,6 @@ $(document).ready(function(){
 			var a=1
 		var parametros = "txt-nombre=" + $("#txt-nombre").val() + "&" + 
 			"chk-checkbox="+a;
-
 			alert(parametros);
 		$.ajax({
 			url:"ajax/procesar_tablero.php?accion=1",
@@ -16,18 +15,35 @@ $(document).ready(function(){
 			data:parametros,
 			dataType:"json",
 			success:function(resultado){
-			//alert(resultado);
-			if (resultado.codigoResp==1)
+			alert(resultado.mensajeResp);
+			if (resultado.codigoResp==1){
 			creartablero();
-			else
+			}
+			else{
 				alert("el tablero no se creo");
+			}
+			$("#nombre-tablero").val()=b;
 			},
+
 		});
-		//creartablero();
 	});
 
 });
 
+
+
  function creartablero() {
-    window.location.href ="crear_tablero.html";
+    window.location.href ="ver_tableros.php";
   }
+
+/* function cargardatos(){
+ 	var parametro = "txt-nombre=" + $("#txt-nombre").val();
+	  $.ajax({
+	        url: "ajax/procesar_tablero.php?accion=2", 
+		    method:"POST",
+            //dataType:"json",
+		    success: function(result){
+		      $("#div-nombre").html(result);
+		  }
+	 });	  
+}*/
