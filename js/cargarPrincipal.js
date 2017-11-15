@@ -130,7 +130,7 @@ $('#busqueda').keypress(function(e){
 		});
 	};
 });
-function mas_busqueda(numero, busqueda, t_busqueda){
+function mas_busqueda(numero,busqueda,t_busqueda){
 	var parametros= "busqueda="+busqueda;
 	$.ajax({
 		url: "ajax/busquedas.php?tipo_busqueda="+t_busqueda+"&accion="+numero,
@@ -138,9 +138,10 @@ function mas_busqueda(numero, busqueda, t_busqueda){
 		method:"POST",
 		dataType:"html",
 		success:function(respuesta){
+			alert(busqueda);
 			$("#pag"+numero).remove();
 			$(".grid").append(respuesta);
-			$("#btn-pag").html("<button type='button' class='btn btn-info' id='pag"+(numero+1)+"' onclick='mas("+(numero+1)+")' style='margin-bottom: 10px;'>Pagina "+(numero+1)+"</button>");
+			$("#btn-pag").html("<button type='button' class='btn btn-info' id='pag"+(numero+1)+"' onclick='mas_busqueda("+(numero+1)+' ,"'+String(busqueda)+'", '+t_busqueda+")' style='margin-bottom: 10px;'>Pagina "+(numero+1)+"</button>");
 			$('.grid').imagesLoaded( function() {
 			  $('.grid').isotope({
 			    masonry: {

@@ -50,13 +50,14 @@ switch ($_GET["tipo_busqueda"]) {
 			default:
 				$conexion = new Conexion();
 			  	$conexion->conectar();
-			  	$consulta=$conexion->ejecutarInstruccion('SELECT * FROM(
+			  	$consulta=$conexion->ejecutarInstruccion("SELECT * FROM(
 			  		SELECT A.*, ROWNUM RW
 			  		FROM (
 			           SELECT CODIGO_FOTO, URL_FOTO
-			            FROM "TBL_FOTOS") A
+			            FROM TBL_FOTOS) A
+			            WHERE UPPER(URL_FOTO) LIKE UPPER('%".$_POST["busqueda"]."%')
 			        )
-			        WHERE RW BETWEEN '.(1+(($_GET["accion"]-1)*20)).' AND '.(20+(($_GET["accion"]-1)*20)));
+			        WHERE RW BETWEEN ".(1+(($_GET["accion"]-1)*20)).' AND '.(20+(($_GET["accion"]-1)*20)));
 				  	while(($linea=$conexion->obtenerRegistro($consulta))!= false){
 				  			?>
 					      <div class="grid-item" id="grid<?php echo $linea["CODIGO_FOTO"];?>">
