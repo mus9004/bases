@@ -1,8 +1,39 @@
+<?php
+    //session_start();
+    include_once("class/class-conexion-oracle1.php");
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $usuario=$conexion->ejecutarInstruccion("
+                                            SELECT CODIGO_USUARIO,
+                                                    NOMBRE ||' ' ||'('|| ALIAS ||')' AS NOMBRE    
+                                            FROM TBL_USUARIO
+                                            WHERE CODIGO_USUARIO = 1
+                                              ");
+        $seguidores=$conexion->ejecutarInstruccion("
+                                            SELECT CODIGO_USUARIO, COUNT(*)  AS SEGUIDORES
+                                            FROM TBL_SEGUIDORES_X_USUARIO
+                                            GROUP BY CODIGO_USUARIO
+                                            HAVING CODIGO_USUARIO = 1
+                                              ");
+
+        $siguiendo=$conexion->ejecutarInstruccion("
+                                            SELECT CODIGO_SEGUIDOR, COUNT(*)  AS SIGUIENDO
+                                            FROM TBL_SEGUIDORES_X_USUARIO
+                                            GROUP BY CODIGO_SEGUIDOR
+                                            HAVING CODIGO_SEGUIDOR = 1
+                                              ");
+        $linea=$conexion->obtenerRegistro($usuario);
+        $linea1=$conexion->obtenerRegistro($seguidores);
+        $linea2=$conexion->obtenerRegistro($siguiendo);
+    ?>  
+        
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Pinterest/Perfil</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <meta charset="utf-8">
   <style type="text/css">
     #btns-subnav{
@@ -150,19 +181,20 @@
               <a class="idnav" href="#"><i class="glyphicon glyphicon-option-horizontal"></i></a>
               <br>
               </div>
-            <div class="col-sm-6">
-              <h1 id="nombrePerfil">Elisa Gabriela Zelaya</h1>
+                
+              <div class="col-sm-6">
+              <h1 id="nombrePerfil"><?php echo $linea[1]?></h1>
               </div>
             <div class="col-sm-2">
               <br>
               <br>
-              <p  class="subEtiquetasPefil">0</p>
+              <p  class="subEtiquetasPefil"><?php echo $linea1[1]?></p>
               <p style="color: #b5b5b5;" class="subEtiquetasPefil" >Seguidores</p>
             </div>
             <div class="col-sm-2">
               <br>
               <br>
-              <p  class="subEtiquetasPefil">0</p>
+              <p  class="subEtiquetasPefil"><?php echo $linea2[1]?></p>
               <p style="color: #b5b5b5;"class="subEtiquetasPefil" >Siguiendo</p>
             </div>
             <div class="col-sm-2">
@@ -172,13 +204,16 @@
               </center>
              </div>
           </div>
+           <div id="prueba">
+            
+          </div>
 
 
           <div class="col-sm-12">
             <div class="col-sm-8 col-sm-offset-2">
               <ul class="nav nav-pills">
               <li role="presentation" class="active"><a href="#">Tableros</a></li>
-              <li role="presentation"><a href="crearPines.html">Pines</a></li>
+              <li role="presentation"><a href="crearPines.php">Pines</a></li>
                </ul>
               <br>
               <div class="well col-sm-3 e zoom">
@@ -216,7 +251,9 @@
                                   <h4>Nombre</h4>
                                 </td>
                                 <td>
+                                  <form method="POST" action="crear_tablero.php">
                                   <input aria-invalid="false" class="form-control" type="text" name="txt-nombre" id="txt-nombre" placeholder="Como lugar que visitar o recetas que hacer" required></td>
+                                  </form>
                                 </td>
                               </tr>
                               <tr>
@@ -227,7 +264,7 @@
                                 <td>
                                   <div class="material-switch pull-left">
                                         <br>
-                                        <input class="form-control" name="chksecreto" id="someSwitchOptionDanger" name="someSwitchOption001" type="checkbox"/>
+                                        <input class="form-control" id="someSwitchOptionDanger" name="chk-secreto" type="checkbox"/>
                                         <label  for="someSwitchOptionDanger" class="label-danger"></label>
                                     </div>
                                 </td>
@@ -236,7 +273,7 @@
                           </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <button id="btn-crear" type="button" class="btn btn-default" data-dismiss="modal" onclick="creartablero()">Crear</button>
+                        <button id="btn-crear" type="button" class="btn btn-default" data-dismiss="modal" >Crear</button>
                       </div>
                   </div>
               
@@ -244,10 +281,20 @@
         </div>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/tablero.js"></script>
+   <script src="js/tablero.js"></script>
   <script>
-  
+    function redireccionar(codigo){
+     codigo= $("#txt-nombre").val();
+  window.location.href = "crear_tablero.php?tablero="+codigo;
+};
+  }
   </script>
+     <!--  <script type="text/javascript">
+                  
+            $(document).ready(function(){
+                cargardatos();
+            });
+    </script> -->
  
 </body>
 </html>

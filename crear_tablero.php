@@ -227,8 +227,8 @@
     <div >
       <div class="col-sm-12">
           <div class="col-sm-8 col-sm-offset-2" >
-            <div class="col-sm-6">
-              <h3 id="nombrePerfil">Nombre del tablero</h3>
+            <div id="div-nombre" name="div-nombre" class="col-sm-6">
+              <h3 ><span id="nombre-tablero">Nombre del tablero</span></h3>
             </div>
           </div>
       </div>
@@ -562,6 +562,8 @@
 
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+   <script src="js/tablero.js"></script>
+   
  
 </body>
 </html>
