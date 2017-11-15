@@ -201,14 +201,6 @@
           </div>
       </div>
 
-
-<div style="margin-top: 60px">
-    <div id="principal">
-            
-            
-    </div>
-</div>
-
 <div style="margin-top: 60px">
     <div id="principal1">
             
@@ -357,9 +349,16 @@
             </div>
         </div>
 
-
+<div style="margin-top: 60px">
+    <div id="principal">
+            
+            
+    </div>
+</div>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/isotope.pkgd.min.js"></script>
+  <script src="js/imagesloaded.pkgd.min.js"></script>
    <script src="js/tablero.js"></script>
    <script src="js/cargar_tab_creados.js"></script>
  <!-- <script>

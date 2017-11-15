@@ -2,26 +2,20 @@ $(document).ready(function(){
 	var parametro="txt-codigousu="+  $("#txt-sitio").val();
 	//alert(parametro);
 	$.ajax({
-
 		url:"ajax/procesar-tableros-creados.php?accion=1",
 		method:"POST",
 		data:parametro,
+		method:"POST",
 		dataType:"html",
 		success:function(respuesta){
 			$("#principal").html(respuesta);
-			var $grid = $('.grid').imagesLoaded( function() {
-			  $grid.isotope({
-			    masonry: {
-					columnWidth: 40
-				}
-			  });
-			});
-			$grid.on( 'click', '#img', function() {
-			  // remove clicked element
-			  $(this).toggleClass('gigante');
-			    // layout remaining item elements
-			    $grid.isotope('layout');
-			});
+			$('.grid').isotope({
+		        layoutMode: 'fitRows',
+		        itemSelector: '.grid-item',
+		        fitRows: {
+		          gutter: 30
+		        }
+		      });
 		}
 	});
 });
