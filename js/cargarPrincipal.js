@@ -45,6 +45,14 @@ function nombrar(){
 			$('#perfil').html(respuesta.NOMBRE+'&nbsp;<img src="'+respuesta.URL_FOTO+'" width="18px" height="18px" class="img-circle">');
 		}
 	});
+			$.ajax({			
+			url:"ajax/busquedas.php?tipo_busqueda=5",
+			method:"POST",
+			dataType:"html",
+			success:function(respuesta){
+				$('#categoria').html(respuesta);
+			}
+	});
 };
 function mas(numero){
 	$.ajax({
@@ -97,7 +105,7 @@ function que_buscar(codigo){
 		$('#op2').html('Tus Pines&nbsp;<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>');
 	}else if (codigo==3) {
 		tipo_busqueda = 3;
-		$('#tipo_busqueda').html('Tus Pines&nbsp;<span class="glyphicon glyphicon-chevron-down"></span></span>');
+		$('#tipo_busqueda').html('Gente&nbsp;<span class="glyphicon glyphicon-chevron-down"></span></span>');
 		$('#op1').html('Todos los Pines');
 		$('#op2').html('Tus Pines');
 		$('#op3').html('Gente&nbsp;<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>');
