@@ -27,7 +27,7 @@
       "reg-telefono="+$("#reg-telefono").val() +"&"+
       "sl-gen="+$("#sl-gen").val() +"&"+
       "id-lugar="+$("#sl-gen").val();
-       alert (parametros);
+
       $.ajax({
         url: "crearusuario.php", 
         data:parametros,
