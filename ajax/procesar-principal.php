@@ -7,8 +7,9 @@ switch ($_GET["accion"]) {
   	$consulta=$conexion->ejecutarInstruccion('SELECT * FROM(
   		SELECT A.*, ROWNUM RW
   		FROM (
-           SELECT CODIGO_FOTO, URL_FOTO
-            FROM "TBL_FOTOS") A
+           SELECT A.CODIGO_PINES, B.URL_FOTO
+            FROM TBL_PINES A, TBL_FOTOS B
+            WHERE A.CODIGO_FOTO = B.CODIGO_FOTO(+)) A
         )
         WHERE RW BETWEEN '.(1+(($_GET["accion"]-1)*20)).' AND '.(20+(($_GET["accion"]-1)*20)));
   		?><div style="padding-left: 50px; padding-right: 40px;">
@@ -16,15 +17,15 @@ switch ($_GET["accion"]) {
  		<?php
 	  	while(($linea=$conexion->obtenerRegistro($consulta))!= false){
 	  			?>
-		      <div class="grid-item" id="grid<?php echo $linea["CODIGO_FOTO"];?>">
-	              <img src="<?php echo $linea["URL_FOTO"];?>" class="img-responsive" width="250" style="border-radius: 12px;" onclick="mostrar(<?php echo $linea["CODIGO_FOTO"];?>)" id="img">
+		      <div class="grid-item" id="grid<?php echo $linea["CODIGO_PINES"];?>">
+	              <img src="<?php echo $linea["URL_FOTO"];?>" class="img-responsive" width="250" style="border-radius: 12px;" onclick="mostrar(<?php echo $linea["CODIGO_PINES"];?>)" id="img">
 	              <div class="text-right" style="height: 0px;">
-	              	<div class="btn-group" style="display: none; top: -40px; left: -10px" id="btn<?php echo $linea["CODIGO_FOTO"];?>">
-	              		<button type="button" class="btn btn-default" onclick="redireccionar(<?php echo $linea["CODIGO_FOTO"];?>)">Ver Pin</button>
+	              	<div class="btn-group" style="display: none; top: -40px; left: -10px" id="btn<?php echo $linea["CODIGO_PINES"];?>">
+	              		<button type="button" class="btn btn-default" onclick="redireccionar(<?php echo $linea["CODIGO_PINES"];?>)">Ver Pin</button>
 					  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...
 					  </button>
 					  <ul class="dropdown-menu">
-					    <li><a onclick="ocultar(<?php echo $linea["CODIGO_FOTO"];?>)">Ocultar</a></li>
+					    <li><a onclick="ocultar(<?php echo $linea["CODIGO_PINES"];?>)">Ocultar</a></li>
 					    <li><a href="#">Denunciar</a></li>
 					    <li role="separator" class="divider"></li>
 					    <li><a href="#">Ves este pin porque </a></li>
@@ -50,21 +51,22 @@ switch ($_GET["accion"]) {
   	$consulta=$conexion->ejecutarInstruccion('SELECT * FROM(
   		SELECT A.*, ROWNUM RW
   		FROM (
-           SELECT CODIGO_FOTO, URL_FOTO
-            FROM "TBL_FOTOS") A
+           SELECT A.CODIGO_PINES, B.URL_FOTO
+            FROM TBL_PINES A, TBL_FOTOS B
+            WHERE A.CODIGO_FOTO = B.CODIGO_FOTO(+)) A
         )
         WHERE RW BETWEEN '.(1+(($_GET["accion"]-1)*20)).' AND '.(20+(($_GET["accion"]-1)*20)));
 	  	while(($linea=$conexion->obtenerRegistro($consulta))!= false){
 	  			?>
-		      <div class="grid-item" id="grid<?php echo $linea["CODIGO_FOTO"];?>">
-	              <img src="<?php echo $linea["URL_FOTO"];?>" class="img-responsive" width="250" style="border-radius: 12px;" onclick="mostrar(<?php echo $linea["CODIGO_FOTO"];?>)" id="img">
+		      <div class="grid-item" id="grid<?php echo $linea["CODIGO_PINES"];?>">
+	              <img src="<?php echo $linea["URL_FOTO"];?>" class="img-responsive" width="250" style="border-radius: 12px;" onclick="mostrar(<?php echo $linea["CODIGO_PINES"];?>)" id="img">
 	              <div class="text-right" style="height: 0px;">
-	              	<div class="btn-group" style="display: none; top: -40px; left: -10px" id="btn<?php echo $linea["CODIGO_FOTO"];?>">
-	              		<button type="button" class="btn btn-default" onclick="redireccionar(<?php echo $linea["CODIGO_FOTO"];?>)">Ver Pin</button>
+	              	<div class="btn-group" style="display: none; top: -40px; left: -10px" id="btn<?php echo $linea["CODIGO_PINES"];?>">
+	              		<button type="button" class="btn btn-default" onclick="redireccionar(<?php echo $linea["CODIGO_PINES"];?>)">Ver Pin</button>
 					  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...
 					  </button>
 					  <ul class="dropdown-menu">
-					    <li><a onclick="ocultar(<?php echo $linea["CODIGO_FOTO"];?>)">Ocultar</a></li>
+					    <li><a onclick="ocultar(<?php echo $linea["CODIGO_PINES"];?>)">Ocultar</a></li>
 					    <li><a href="#">Denunciar</a></li>
 					    <li role="separator" class="divider"></li>
 					    <li><a href="#">Ves este pin porque </a></li>
