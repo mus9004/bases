@@ -85,6 +85,7 @@ $.ajax({
 			method: "POST",
 			success:function(resultado){
 				$("#guardando").html(resultado);
+				
 			    
 			},
 			error:function(){

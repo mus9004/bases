@@ -155,8 +155,8 @@ switch ($_GET["accion"]) {
 			$resultado['mensajeResp'] = $MENSAJE_RESULTADO;			
 			oci_free_statement($procedure);
 			oci_close($conn);
-			echo json_encode($resultado);
-
+			echo json_encode($MENSAJE_RESULTADO);
+			
 			break;		
 		case 5:
 			$sql=' SELECT A.CODIGO_FOTO , A.CODIGO_USUARIO, C.CODIGO_FOTO,
