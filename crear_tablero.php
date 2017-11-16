@@ -30,11 +30,19 @@
                                             ON (A.CODIGO_USUARIO=B.CODIGO_USUARIO)
                                             WHERE A.CODIGO_TABLERO =$codigo_table
                                               ");
+         $pines=$conexion->ejecutarInstruccion("
+                                            SELECT A.NOMBRE_PIN, A.DIRECCION, A.DESCRIPCION, B.URL_FOTO, B.SITIO_WEB
+                                            FROM TBL_PINES A
+                                            INNER JOIN TBL_FOTOS B
+                                            ON (A.CODIGO_FOTO=B.CODIGO_FOTO)
+                                            WHERE CODIGO_USUARIO = $codigousuario
+                                              ");
         
         $linea1=$conexion->obtenerRegistro($seguidores);
         $linea3=$conexion->obtenerRegistro($seguidores1);
         $linea=$conexion->obtenerRegistro($nombre_tab);
         $linea2=$conexion->obtenerRegistro($usuario);
+        $linea4=$conexion->obtenerRegistro($pines);
     ?>
 
 <!DOCTYPE html>
@@ -333,23 +341,26 @@
           </p>
      </div>
 
-      <div class="col-md-2 col-sm-2 col-md-2 col-lg-2"">
+
+<?php
+  while (($linea4=$conexion->obtenerRegistro($pines))!= false) {
+  ?>  <div class="col-md-2 col-sm-2 col-md-2 col-lg-2"">
           <p>
             <div class="container-fluid">
               <div class="row">
                 
                 <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
                   <div class="well">
-                    <strong></strong>
+                    <strong><?php echo $linea4[0]?></strong>
                     <p></p>
-                    <img src="" class="img-responsive">
+                    <img src="<?php echo $linea4[3]?>" class="img-responsive">
                     <span class="badge"></span>
                     <span class="badge"></span>
                     <p>
                       <hr>
-                      <h4></h4>
+                      <h5><?php echo $linea4[2]?></h5>
                       <div>
-                        <strong></strong>
+                        <a href="<?php echo $linea4[4]?>">sitio web</a>
                       </div>
                     </p>
                   </div>
@@ -359,208 +370,9 @@
             </div>
           </p>
      </div>
-
-
-      <div class="col-md-2 col-sm-2 col-md-2 col-lg-2">
-          <p>
-            <div class="container-fluid">
-              <div class="row">
-                
-                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
-                  <div class="well">
-                    <strong></strong>
-                    <p></p>
-                    <img src="" class="img-responsive">
-                    <span class="badge"></span>
-                    <span class="badge"></span>
-                    <p>
-                      <hr>
-                      <h4></h4>
-                      <div>
-                        <strong></strong>
-                      </div>
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </p>
-     </div>
-
-
-     <div class="col-md-2 col-sm-2 col-md-2 col-lg-2">
-          <p>
-            <div class="container-fluid">
-              <div class="row">
-                
-                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
-                  <div class="well">
-                    <strong></strong>
-                    <p></p>
-                    <img src="" class="img-responsive">
-                    <span class="badge"></span>
-                    <span class="badge"></span>
-                    <p>
-                      <hr>
-                      <h4></h4>
-                      <div>
-                        <strong></strong>
-                      </div>
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </p>
-     </div>
-
-     <div class="col-md-2 col-sm-2 col-md-2 col-lg-2">
-          <p>
-            <div class="container-fluid">
-              <div class="row">
-                
-                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
-                  <div class="well">
-                    <strong></strong>
-                    <p></p>
-                    <img src="" class="img-responsive">
-                    <span class="badge"></span>
-                    <span class="badge"></span>
-                    <p>
-                      <hr>
-                      <h4></h4>
-                      <div>
-                        <strong></strong>
-                      </div>
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </p>
-     </div>
-
-
-      <div class="col-md-2 col-sm-2 col-md-2 col-lg-2">
-          <p>
-            <div class="container-fluid">
-              <div class="row">
-                
-                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
-                  <div class="well">
-                    <strong></strong>
-                    <p></p>
-                    <img src="" class="img-responsive">
-                    <span class="badge"></span>
-                    <span class="badge"></span>
-                    <p>
-                      <hr>
-                      <h4></h4>
-                      <div>
-                        <strong></strong>
-                      </div>
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </p>
-     </div>
-</div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-            
-                  <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h2 class="modal-title"><strong>Edita tu tablero</strong></h2>
-                      </div>
-                          <div class="form-group">
-                            <input type="text" style="visibility: hidden;" id="txt-sitio" name="txt-sitio" value="<?php echo $_GET['codigo_tablero']?>">
-
-                            <table class="table ">
-                              <tr>
-                                <td>
-                                  <h4>Nombre</h4>
-                                </td>
-                                <td>
-                                  <input style="background: #E4E0DF" aria-invalid="false" class="form-control" type="text" name="txt-nombre" id="txt-nombre" placeholder="nombre del tablero" required></td>
-
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <h4>Descipcion</h4>
-                                </td>
-                                <td>
-                                  <input style="background: #E4E0DF" aria-invalid="false" class="form-control" type="textarea" name="txt-descripcion1" id="txt-descripcion1" placeholder="¿Cual es el tema de este tablero?" required></td>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <h4>Categoria</h4>
-                                </td>
-                                <td>
-                                  <select style="background: #E4E0DF" class="form-control" id="slc-categoria" >
-                                    <option >¿De que tablero se trata?</option>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                  </select>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <h4>Secreto</h4>
-                                  <a href=""><h5>Mas informacion</h5>
-                                </td>
-                                <td>
-                                  <div class="material-switch pull-left">
-                                        <br>
-                                        <input class="form-control" id="someSwitchOptionDanger" name="chksecreto" type="checkbox"/>
-                                        <label  for="someSwitchOptionDanger" class="label-danger"></label>
-                                    </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <h4>Colaboradores</h4>
-                                  <a href=""><h5>Mas informacion</h5>
-                                </td>
-                                <td>
-                                  <br>
-                                 <div class="input-group"> <input style="width: 300px" aria-invalid="false" class="form-control" type="text" name="txt-colaboradores" id="txt-colaboradores" placeholder="Nombre o correo">  &nbsp&nbsp&nbsp   <input style="width: 75px" class="btn btn-default" type="button" value="Invitar">
-                                 </div>
-                                 <div class="col-sm-1" ">
-                                    <img style="width: 30px" class="img-responsive" id="perfil" src="img/icon.png">
-                                    
-                                 </div> 
-                                 <div class="col-sm-6"><strong><h6><?php echo $linea2[1]?> Has creado este tablero</h6></strong>
-                                      </div>
-                                </td>
-                              </tr>
-                            </table>     
-                          </div>
-                      <div class="modal-footer">
-                        <div class="col-sm-3">
-                          <button type="button" id="btn-eliminar" class="btn btn-default">Eliminar tablero</button>
-                        </div>
-                        
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <button type="button" id="btn-edi" class="btn btn-danger">Guardar</button>
-                      </div>
-                  </div>
-              
-            </div>
-        </div>
-
-
+  <?php 
+}
+?>
         <!-- Modal1 -->
         <div class="modal fade" id="myModal1" role="dialog">
             <div class="modal-dialog modal-lg">

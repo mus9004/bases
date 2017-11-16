@@ -1,9 +1,46 @@
+<?php
+    session_start();
+    include_once("class/class-conexion-oracle1.php");
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $codigousuario=$_SESSION['codigo_usuario'];
+        $usuario=$conexion->ejecutarInstruccion("
+                                            SELECT CODIGO_USUARIO,
+                                                    NOMBRE ||' ' ||'('|| ALIAS ||')' AS NOMBRE    
+                                            FROM TBL_USUARIO
+                                            WHERE CODIGO_USUARIO = $codigousuario
+                                              ");
+        $seguidores=$conexion->ejecutarInstruccion("
+                                            SELECT CODIGO_USUARIO, COUNT(*)  AS SEGUIDORES
+                                            FROM TBL_SEGUIDORES_X_USUARIO
+                                            GROUP BY CODIGO_USUARIO
+                                            HAVING CODIGO_USUARIO = $codigousuario
+                                              ");
+
+        $siguiendo=$conexion->ejecutarInstruccion("
+                                            SELECT CODIGO_SEGUIDOR, COUNT(*)  AS SIGUIENDO
+                                            FROM TBL_SEGUIDORES_X_USUARIO
+                                            GROUP BY CODIGO_SEGUIDOR
+                                            HAVING CODIGO_SEGUIDOR = $codigousuario
+                                              ");
+
+        $tableros=$conexion->ejecutarInstruccion("
+                                            SELECT NOMBRE_TABLERO, CODIGO_TABLERO
+                                            FROM TBL_TABLERO
+                                            WHERE CODIGO_USUARIO = $codigousuario
+                                              ");
+        $linea=$conexion->obtenerRegistro($usuario);
+        $linea1=$conexion->obtenerRegistro($seguidores);
+        $linea2=$conexion->obtenerRegistro($siguiendo);
+        $linea3=$conexion->obtenerRegistro($tableros);
+    ?>
 <!DOCTYPE html>
 <html>
 <head>
   <title>Pinterest/Perfil</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/buscar.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <meta charset="utf-8">
   <style type="text/css">
     #btns-subnav{
@@ -155,15 +192,15 @@
             <div class="col-sm-6">
             <table>
             <tr>
-              <h1 id="nombrePerfil">Ana Iris</h1>
+              <h1 id="nombrePerfil"><?php echo $linea[1]?></h1>
               </div>
             </tr>
            <tr>
             <div class="col-sm-2">
                  <br>
                   <br>
-                  <p  class="subEtiquetasPefil">0</p>
-                  <p style="color: #b5b5b5;" class="subEtiquetasPefil" >Seguidor</p>
+                  <p  class="subEtiquetasPefil"><?php echo $linea1[1]?></p>
+                  <p style="color: #b5b5b5;" class="subEtiquetasPefil" >Seguidores</p>
                 
             </tr>
             </div>
@@ -171,7 +208,7 @@
                   <div class="col-sm-2" style="left: 90px;">
                   <br>
                   <br>
-                  <p  class="subEtiquetasPefil">0</p>
+                  <p  class="subEtiquetasPefil"><?php echo $linea2[1]?></p>
                   <p style="color: #b5b5b5; " class="subEtiquetasPefil" >Siguiendo</p>
                 </td>
             
@@ -211,104 +248,65 @@
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog modal-lg">
-            
+            <div class="modal-dialog modal-mg">
                   <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h3 style="text-align: center;" class="modal-title"><strong> Crear Pin</strong> </h3>
                       </div>
                           <div class="form-group">
-
-                            <table class="table ">
+                          <input type="text" style="visibility: hidden;" id="txt-sitio" name="txt-sitio" value="<?php echo $_SESSION['codigo_usuario']?>">
+                            <table class="table table_hover">
                               <tr>
-                                <td style="align-items: center;" rowspan="4">
-                                  <br><br>
-                                  <form style="width: 200px" method="post" id="formulario" enctype="multipart/form-data">
+                                <td style="align-items: center;">
+                                  <form style="width: 500px" method="post" id="formulario" enctype="multipart/form-data">
                                    <h4>Cargar Imagen:</h4>
                                   <input style="width: 100%" type="file" name="file">
                                  </form><br>
                                   <input type="text" id="txt-imagen" name="txt-imagen" placeholder="img/001.jpg" required class="form-control">
                                 </td>
-                                <td rowspan="2">
-                                  <h4>Añade una descripcion</h4>
-                                  <input style="background: #E4E0DF" aria-invalid="false" class="form-control" type="textarea" name="txt-descripcion" id="txt-descripcion" placeholder="Descripcion" required>
+                                
+                              </tr>
+                              <tr>
+                                <td>
+                                  <h4>Dale un nombre</h4>
+                                  <input style="background: #E4E0DF" aria-invalid="false" class="form-control" type="textarea" name="txt-nombre1" id="txt-nombre1" placeholder="se descriptivo" required>
                                 </td>
                               </tr>
                               <tr>
-                                <td></td>
+                                <td>
+                                   <h4>Añade una descripcion</h4>
+                                  <input style="background: #E4E0DF" aria-invalid="false" class="form-control" type="text" name="txt-descripcion" id="txt-descripcion" placeholder="Descripcion" required>
+                                </td>
                               </tr>
                               <tr>
-                                <td rowspan="2">
+                                <td >
                                    <h4>Enlaza con el sitio web</h4>
-                                  <input style="background: #E4E0DF" aria-invalid="false" class="form-control" type="text" name="txt-nombre" id="txt-nombre" placeholder="http://" required>
+                                  <input style="background: #E4E0DF" aria-invalid="false" class="form-control" type="text" name="txt-url" id="txt-url" placeholder="http://" required>
                                 </td>
                               </tr>
                               <tr>
-                                <td></td>
+                               <td >
+                                  <select class="form-control" id="slc-tableros" name="slc-tableros">
+                                  <option>SELECCIONA UN TABLERO</option>
+                                <?php
+                                  while (($linea3=$conexion->obtenerRegistro($tableros))!= false) {
+                                  ?>  <option value="<?php echo $linea3[1]?>"><?php echo $linea3[0]?></option>;
+                                  <?php 
+                                }
+                                ?>
+                                </select>
+                                </td>
                               </tr>
-                            </table>     
+                            </table>    
                           </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="crearPin()">Crear</button>
+                        <button type="button" id="btn" class="btn btn-danger" data-dismiss="modal" >Guardar</button>
                       </div>
                   </div>
               
             </div>
-        </div>
-
-        <!--modal dos-->
-        <div class="modal fade" id="myModal1" role="dialog">
-             <div class="modal-dialog modal-lg">
-                <div class="modal-content col-lg-12">
-                  <div >
-                    <div class=" col-lg-6">
-                      <br><br><br>
-                      <div class="col-lg-6" style="text-align: center;">
-                        <img src="img/anillo6.jpg" style="width: 256px; height: 256px">
-                        <br><br>
-                        descripcion pin
-                        <br><br><br>
-                      </div>
-
-                    </div>
-                    
-                    <div class=" col-lg-6">
-                      <div >
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 style="text-align: center;" class="modal-title"><strong> seleccionar tablero</strong> </h3>
-                      </div>
-                       <div class="flexsearch">
-                            <div class="flexsearch--wrapper">
-                              <form class="flexsearch--form" action="#" method="post">
-                                <div class="flexsearch--input-wrapper">
-                                  <input class="flexsearch--input" type="search" placeholder="Buscar">
-                                </div>
-                                <input class="flexsearch--submit" type="submit" value="&#10140;"/>
-                              </form>
-                            </div>
-                        </div><br>
-                        <div>
-                          Todos los tableros
-                          <table class="table table-hover ">
-                              <tr>
-                                <td id="capa">
-                                  <img src="img/anillo7.jpg" height="15%" class="img-circle">&nbsp  nombre del tablero &nbsp &nbsp &nbsp 
-                                
-                                  <button id="btn-guardar" style="width: 130px; text-align: center;" type="button" class="btn btn-danger" data-dismiss="modal" onclick="guardar()">Guardar</button>
-                                </td>
-                              </tr>
-                            </table>  
-                        </div>
-                        
-                    </div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
         </div>
 
 
@@ -333,20 +331,12 @@
         </div>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-   <script>
-  function crearPin(){
-    $('#myModal1').modal('show');
-  }
+   <script src="js/pines.js"></script>
+<script>
 
-   $("#capa").hover(function(){
-        $("#btn-guardar").show();
-    }, function(){
-        $("#btn-guardar").hide();
-    });
-
-   function guardar(){
-    $('#myModal2').modal('show');
-  }
+function guardar(){
+  $('#myModal2').modal('show');
+}
   </script>
 
  
